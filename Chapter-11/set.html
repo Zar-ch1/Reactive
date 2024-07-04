@@ -1,0 +1,36 @@
+<html>
+    <script>
+        let set = new Set();//empty
+        console.log('set with empty', set);
+        let set2 = new Set([1, 'one']);
+        console.log('set with 2 para', set2);
+        console.log('==========================================');
+        let set3 = new Set();
+        console.log('set.size', set3.size);
+        set3.add(1);
+        set3.add(2);
+        set3.add(3);
+        set3.add(1);
+        set3.add('String');//set can include mixed type
+        set3.add([1,2,3]);//set can include any data type 
+        set3.delete(1);//delete is effect the size of set
+        console.log('set3', set3);
+        console.log('set3.size with add', set3.size);
+        let unique = new Set('MISSISIPI');//set is not take duplicated value
+        console.log('unique', unique);
+        console.log('set.has', set3.has('String'));
+        for (const element of set3)//set is can be iterable
+        {
+            console.log('for loop with Set', element);
+        }
+        let arr = [...set3];
+        console.log('that is arr from set with iterable', arr);
+        set3.clear();
+        console.log('set with clear method', set3);
+        
+        let set4 = new Set(['apple', 'banana', 'apple']);//arr to set
+        console.log('arr to set ', set4);
+        set4.forEach(x=>console.log('forEach', x.toLocaleUpperCase()));
+        
+    </script>
+</html>

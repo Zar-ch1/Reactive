@@ -1,0 +1,20 @@
+<html>
+    <script>
+        let map = new Map([
+            [1, 'One'],
+            [2, 'Two'],
+            [3, 'Three']
+        ])
+        console.log('Map', map);
+        console.log('typeof', typeof(map));
+        for(let i of map)
+        {
+            console.log(i);
+            console.log(typeof(i));
+        }
+        for(let [keys, values] of map)
+        {
+            console.log('Key ', keys, ' Values ', values);
+        }
+    </script>
+</html>

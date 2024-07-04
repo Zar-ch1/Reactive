@@ -1,0 +1,30 @@
+<html>
+    <script>
+        let students = [
+            {
+                name : 'Hla Hla',
+                gender : 'female',
+                age : 24
+            },
+            {
+                name : 'Aung Hla',
+                gender : 'male',
+                age : 22
+            },
+            {
+                name : 'Mya Mg',
+                gender : 'male',
+                age : 30
+            },
+            {
+                name : 'Tint Tint',
+                gender : 'female',
+                age : 20
+            },
+        ]
+        let female = students.filter(students=>students.gender == 'female')/*.map(students=>students.age).reduce((a,b)=>a<b?a:b);*/
+                                .reduce((studA, studB)=> studA.age<studB.age?studA:studB);
+            console.log('youngest_Female ', female);
+        
+    </script>
+</html>

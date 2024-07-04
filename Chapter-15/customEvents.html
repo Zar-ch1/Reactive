@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <button type="button" id="btnLoad">LOAD</button>
+    </body>
+    <script>
+        function doSomething()
+        {
+            setTimeout(()=>{
+                console.log('Do Something Done');
+                document.dispatchEvent(new CustomEvent('doSomethingDone', {
+                    data : 'Result'
+                }))
+            }, 4000)
+        }
+        document.getElementById('btnLoad')
+                .addEventListener('click', ()=>{
+                    doSomething();
+                })
+        document.addEventListener('doSomethingDone', (event)=>{
+            console.log('Event Do Something Done', event);
+        })
+        document.addEventListener('doSomethingDone', (event)=>{
+            console.log('Event Do Something Done2', event);
+        })
+    </script>
+</html>

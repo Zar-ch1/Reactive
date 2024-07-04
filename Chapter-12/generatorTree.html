@@ -1,0 +1,56 @@
+<html>
+    <script>
+        let data = [
+            {
+                id : 1,
+                name: 'Emp1'
+            },
+            {
+                type: 'Department',
+                name: 'HR',
+                employees: [
+                    {
+                        id: 2,
+                        name: 'Emp2'
+                    },
+                    {
+                        id:3,
+                        name: 'Emp3'
+                    },
+                    {
+                        type: 'Department',
+                        name: 'Something',
+                        employees: [
+                            {
+                                id: 4,
+                                name: 'Emp4'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+        function *traverse(items)
+        {
+            for(let i=0; i<items.length; i++)
+            {
+                 let item = items[i];
+                 if(item.type=='Department')
+                 {
+                    yield* traverse(item.employees);
+                    //yield* is used for recursive func in
+                    //generator
+                 }
+                 else
+                 {
+                    yield item;
+                 }
+            }
+        }
+        //traverse(data);
+        for(const emp of traverse(data))
+        {
+            console.log(emp);
+        }
+    </script>
+</html>

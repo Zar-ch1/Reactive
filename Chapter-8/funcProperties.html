@@ -1,0 +1,20 @@
+<html>
+    <script>
+        function hello()
+        {
+            console.log('Hello');
+        }
+        console.log('Name', hello.name, ' Length', hello.length);
+        console.log('Type', typeof(hello), 'InstanceOf', hello instanceof Object);
+        hello.something = 'Something';
+        console.log('custom Property', hello.something);
+        unique.counter = 0;//counter is unique func's property 
+        function unique()
+        {
+            return unique.counter++;
+        }
+        console.log('Unique', unique(1));
+        console.log('Unique', unique());
+        console.log('Unique', unique());
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+<script>
+    let nums = [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4];
+    const frequency = R.countBy(R.identity)(nums);
+    console.log(frequency);
+    const log = R.tap(console.log);
+    let topK = R.pipe(R.countBy(R.identity),
+        log,
+        Object.entries,
+        log,
+        R.sort((a, b) => b[1] - a[1]),
+        log,
+        R.map(item => item[0]),
+        log,
+        R.take(1),
+        log,
+        R.toString,
+        log)(nums);
+    topK;
+    const f = R.pipe(Math.pow, R.negate, R.inc);
+
+    console.log(f(3, 4)); // -(3^4) + 1               
+
+</script>
+
+</html>

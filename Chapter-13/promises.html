@@ -1,0 +1,21 @@
+<html>
+<script>
+    function div(a, b, callback) {
+        setTimeout(() => {
+            callback(a / b);
+        }, 1000)
+    }
+    div(10, 2, (i) => console.log('Result', i));
+    let promises = Promise.resolve(100);
+    promises.then(data => data * 2).then(console.log);
+
+    Promise.reject('Something went wrong').then(data => data * 2, (error) => {
+        console.log('ERROR');
+        return 0;
+        //throw error;
+    })
+    .catch((e)=>console.log('Catch', e))
+    .then(console.log, (e)=>console.log('ERROR', e));
+</script>
+
+</html>

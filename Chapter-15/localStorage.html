@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    
+</body>
+<script>
+    let name = window.localStorage.userName;
+    if(!name)
+    {
+    let username = window.prompt('What is your Name');
+    localStorage.userName = JSON.stringify({username});
+    }
+    else
+    {
+        let obj = JSON.parse(name);
+        console.log(obj);
+
+    }
+</script>
+
+</html>

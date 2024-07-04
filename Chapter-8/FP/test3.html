@@ -1,0 +1,13 @@
+<html>
+<script>
+    const curryByBind = fn => fn.length === 0 ? fn() : p => curryByBind(fn.bind(null, p)); 
+    function add(a,b){
+        return a+b;
+    }
+    let curry = curryByBind(add);
+    console.log('currywithBind', curry(2));
+    console.log('currywithBind', curry(3)(4));
+
+</script>
+
+</html>

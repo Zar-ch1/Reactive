@@ -1,0 +1,25 @@
+<html>
+<script>
+    class EZArray extends Array {
+        get first() { return this[0]; }
+        get last() { return this[this.length - 1]; }
+    }
+    //EZArray[Symbol.species] = Array;
+    Object.defineProperty(EZArray, Symbol.species, {
+        value: Array
+    });
+    let e = new EZArray(1,2,3);
+    console.log('first', e.first);
+    console.log('last', e.last);
+    console.log('e[2]', e[2]);
+    let f = e.map(x=>x*x);
+    console.log('f', f);
+    console.log('first f', f.first);
+    console.log('f instance of EZ array', f instanceof EZArray);
+
+    String.prototype.toUpperCase = ()=>'greet';
+    console.log('hello'.toUpperCase());
+
+</script>
+
+</html>

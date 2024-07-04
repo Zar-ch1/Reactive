@@ -1,0 +1,46 @@
+<html>
+    <script>
+        let i = 5;
+        do{
+            console.log('Hi', i);
+        }while(++i < 10);
+        console.log('End of Code', i);
+
+        /*        function printArray(a) {
+        let len = a.length, i = 0;
+        if (len === 0) {
+        console.log("Empty Array");
+        } else {
+        do {
+        console.log(a[i]);
+        } while(++i < len);
+        }
+        }
+        printArray([1, 2, 3, 4]);
+        */
+       function printArrayIndex(a){
+        let len = a.length; let i = 0;
+        if(len === i)
+        {
+            console.log('Empty Array', a[i]);
+        }else
+        {
+            do{
+                console.log('Array', a[i]);
+                i++;
+            }while(i<len);
+        }
+        console.log('end of code', i);
+        console.log('length', len);
+       }
+       printArrayIndex([1, 2, 3, 4, 5]);
+
+       console.log('=====');
+       let b = 0;
+       while(b < 3)
+       {
+        console.log('LEE', b);
+        b++;
+       }
+    </script>
+</html>

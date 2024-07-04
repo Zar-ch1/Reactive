@@ -1,0 +1,18 @@
+<html>
+    <script>
+        class Data {
+            [Symbol.toPrimitive]()
+            {
+                console.log('Symbol.toPrimitive');
+                return 100;
+            }
+        }
+        let data = new Data();
+        console.log('data', data+1);
+
+        //template literal 
+        let str = `Hello \nWorld <h1>Hello</h1>`
+        console.log('Template Literal ` `', str);
+        console.log('String.raw', String.raw `Hello \nWorld`);
+    </script>
+</html>

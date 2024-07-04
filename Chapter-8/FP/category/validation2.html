@@ -1,0 +1,148 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+  <script>
+    //Left is failure
+    const Left = (value) => ({
+      value,
+      map(fn) {
+        return Left.of(value);
+      },
+      isleft()
+      {
+        return true;
+      },
+      and(other)
+      {
+        return other.isleft()?Left.of([...value, ...other.value]):Left.of(value);
+      },
+      or(other)
+      {
+        return other.isleft()?Left.of([...value, ...other.value]):other;
+      },
+      matchWith(
+        context //context is obj=>{left:()=>, right: ()=>}
+      ) {
+        //console.log('Failed', context)
+        return context.left(value);
+      },
+      valueOf() {
+        return value;
+      },
+    });
+    Left.of = Left;
+    
+    //Right is Success
+    const Right = (value) => ({
+      value,
+      map(fn) {
+        return Right.of(fn(value));
+      },
+      isleft()
+      {
+        return false;
+      },
+      and(other)//Right.of(input) of andCombinator AND Right.of(input) from coming enrichValidation
+      {
+        return !other.isleft()?Right.of(value):other;
+      },
+      or(other)
+      {
+        return Right.of(value);
+      },
+      matchWith(context) {
+        //console.log('Success', context)
+        return context.right(value);
+      },
+      valueOf() {
+        return value;
+      },
+    });
+    Right.of = Right;
+    let obj = {
+      username: "T K",
+      email: "me@gmail.com",
+    };
+    //min length, max length,
+    //email valid?
+    //[userNameValidation, Emailvalidator]
+    const notEmpty = (input) => input != "";
+    const minLength = (length) => (str) => str.length >= length;
+    const maxLength = (length) => (str) => str.length <= length;
+    const validEmail = (email) => email.includes("@");
+    //
+    const userNameNotEmpty = (obj) => notEmpty(obj.username);
+    const emailNotEmpty = (obj) => notEmpty(obj.email);
+    const userValidEmail = (obj) => validEmail(obj.email);
+    const userNameMinLength = (obj) => minLength(3)(obj.username);
+    const userNameMaxLength = (obj) => maxLength(10)(obj.username);
+
+    // AND or OR ???
+    // A N D
+    
+    function andCombinator(validationFns)//accept array
+    {
+         return function(input)
+         {
+             return validationFns.reduce((validationResult, fn)=>{
+                 return validationResult.and(fn(input));
+             }, Right.of(input));//becoz of AND logic and this will be work first call and just only one time
+         }
+    }
+    
+    // O R
+    function orCombinator(validationFns)//accept array
+    {
+         return function(input)
+         {
+             return validationFns.reduce((validationResult, fn)=>{
+                 return validationResult.or(fn(input))}, Left.of([]));
+         }
+    }
+    function enrichValidation(validationFn, errorMessage) {
+      return function (input) {
+        return validationFn(input) ? Right.of(input) : Left.of([errorMessage]);
+      };
+    }
+    const userNameNotEmptyV2 = enrichValidation(
+      userNameNotEmpty,
+      "Username is empty"
+    );
+    const emailNotEmptyV2 = enrichValidation(emailNotEmpty, "Eamil is empty");
+    const userValidEmailV2 = enrichValidation(
+      userValidEmail,
+      "User Email is Invalid"
+    );
+    const userNameMinLengthV2 = enrichValidation(
+      userNameMinLength,
+      "Username length must be 3"
+    );
+    const userNameMaxLengthV2 = enrichValidation(
+      userNameMaxLength,
+      "Username length should not over 10"
+    );
+
+    /*userNameMinLengthV2({ username: "tk" }).matchWith({
+      right: () => console.log("Success"),
+      left: (error) => console.log("Failure...", error),
+    });
+    */
+    let objj = { username: 'wai', email: 'me@gmail.com'}
+    let validateAnd = andCombinator([userNameNotEmptyV2, 
+                                     emailNotEmptyV2, 
+                                    userValidEmailV2, 
+                                    userNameMinLengthV2, 
+                                    userNameMaxLengthV2
+                                    ]);
+    validateAnd(objj).matchWith({
+        left: (error)=>console.log('Failure...', error),
+        right: (result)=>console.log('Success', result)
+    });
+
+    let validateOr = orCombinator([userNameNotEmptyV2, emailNotEmptyV2, userValidEmailV2, userNameMinLengthV2]);//username max length is alway true
+    //becoz empty str.length less than max lenght
+    validateOr({username: '', email: ''}).matchWith({
+      left: (error)=>console.log('failure...', error),
+      right: (result)=>console.log('success', result)
+    });
+  </script>
+</html>

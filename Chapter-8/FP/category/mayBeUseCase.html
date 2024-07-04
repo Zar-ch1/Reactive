@@ -1,0 +1,31 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+  <script src= "mayBe.js"></script>
+  <script>
+    let employees = {
+      1: { id: 1, name: "Emp_1" },
+      2: {
+        id: 2,
+        name: "Emp_2",
+        superVisor: 1,
+      },
+      3: {
+        id: 3,
+        name: "Emp_3",
+        superVisor: 2,
+      },
+      4: {
+        id: 4,
+        name: "Emp_4",
+        superVisor: 2,
+      },
+    };
+    const getEmployee = (id)=>employees[id];
+    const getSuperVisorId = (employee)=>employee.superVisor;
+    const result = mayBe.of(3)
+                        .map(getEmployee)
+                        .map(getSuperVisorId)
+                        .map(getEmployee);
+    console.log('getSuperVisor of employee 3', result);
+  </script>
+</html>

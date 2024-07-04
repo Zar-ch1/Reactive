@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <button type="button" id="btnPayment">Payment</button>
+        <button type="button" id="btnOk">OK</button>
+        <div id="container">Container
+            <div id="childContainer">Child</div>
+        </div>
+        
+    </body>
+    <script>
+        document.addEventListener('click', (event)=>{
+            console.log('Document Clicked', event);
+        },{capture:true})
+        document.getElementById('childContainer')
+                .addEventListener('click', (event)=>{
+                    console.log('child container click handler');
+                },{capture:true})
+        document.getElementById('container')
+                .addEventListener('click', (event)=>{
+                    console.log('container handler 1');
+                },{capture:true})
+                document.getElementById('container')
+                .addEventListener('click', (event)=>{
+                    console.log('container handler 2');
+                },{capture:true})
+        
+        document.addEventListener('contextmenu', (event)=>{
+            console.log('Document content right click', event);
+        })
+        document.getElementById('btnOk')
+                    .addEventListener('click', ()=>{
+                        console.log('BTN OK Clicked', event);
+    
+                    })
+        document.getElementById('btnPayment').addEventListener('click', (event)=>{
+            console.log('Payment click', event);
+        },{once: true})
+    </script>
+</html> 

@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function unique()
+        {
+            let counter = 0;
+            return function inner()
+            {
+                return counter++;
+            }
+        }
+        let id =  unique();//that is closure
+        console.log('id', id());
+        console.log('id', id());
+        console.log('id', id());
+
+        let another = unique();
+        console.log('another', another());
+        console.log('another', another());
+        console.log('another', another());
+    </script>
+</html>

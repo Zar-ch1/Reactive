@@ -1,0 +1,34 @@
+<html>
+    <script>
+        function factorial(n)
+        {
+            console.log('fact_compute ', n);
+            let result = 1;
+            for(let i=1; i<=n; i++)
+            {
+               result *= i;
+            }
+            return result;
+        }
+        function memonize(fn)
+        {
+            let cache = {};
+            return function(args)
+            {
+                if(cache[args])
+                {
+                    return cache[args];
+                }
+                else
+                {
+                    let ret = fn(args);
+                    cache[args] = ret;
+                    return ret;
+                }
+            }
+        }
+        let factorial_m = memonize(factorial);
+        console.log('Factorial_ ',factorial_m(4));
+        console.log('Factorial_ ',factorial_m(4));
+    </script>
+</html>

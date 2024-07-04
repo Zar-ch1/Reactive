@@ -1,0 +1,31 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+  
+  <script>
+    const toUpper = (str) => str.toUpperCase();
+    const appendHi = (str) => str + "Hi";
+    let pipe = (funcA) => (funcB) => (x) => funcB(funcA(x));
+    let newFunc = pipe(toUpper)(appendHi);
+    console.log("newFunc", newFunc('hello_'));
+    const mayBe = (value) => ({
+      value,
+      isNull() {
+        return value == null || value == undefined;
+      },
+      //apply coming func with value in container and return the container
+      map(fn) {
+        return this.isNull()? mayBe.of(null): mayBe.of(fn(value));
+      },
+      valueOf() {
+        return value;
+      },
+    });
+    mayBe.of = mayBe;
+    //console.log(mayBe.of);
+    let data;//undefined
+    let result = mayBe.of(data)
+                      .map(toUpper)
+                      .map(appendHi);
+    console.log('result ', result, 'result_value', result.value);
+  </script>
+</html>

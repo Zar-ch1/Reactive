@@ -1,0 +1,16 @@
+<html>
+    <script>
+        function conV(v){return ()=> v;};
+        console.log(conV(10)());
+        console.log('========');
+        let arr = [];
+        for(var i=0; i<10; i++)//var not ok, let will be fine
+        {
+            arr[i] = ()=>i;
+        }
+        console.log(arr[0]());//when closure used, var is always give the latest value
+        console.log('=========');
+        let sum = new Function('x', 'y', 'return x+y');//constructor 
+        console.log('SUM', sum(2,3));
+    </script>
+</html>

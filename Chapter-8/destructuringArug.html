@@ -1,0 +1,23 @@
+<html>
+    <script>
+        function display(obj)
+        {
+            let name = obj.name;
+            let age = obj.age;
+            console.log('Name', name, 'Age', age);
+        }
+        // display({
+        //     name : 'Wai', 
+        //     age : 26
+        // });
+        let obj = {
+            name : 'wai', 
+            age : 29
+        };
+        display(obj);
+        function display2({name, age}){//that is argument to parameter with using argument drestructuring 
+            console.log('arguDestru_Name', name, ' arguDestru_age', age);
+        }
+        display2({name: 'TK', age:39});
+    </script>
+</html>

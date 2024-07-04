@@ -1,0 +1,39 @@
+<html>
+    <script>
+        let i;
+        for((console.log('Initialization'), i = 0); (console.log('Condition'), i < 5); (console.log('Increment'), i++))
+        //use comma semantic and watch the code flow
+        {
+            console.log('Hi Pr', i);
+        }
+        console.log('End of Code Block', i);
+        let arr = [10, 20, 30, 40];
+        /*let x;
+        for(x=0; x<arr.length; x++)
+        {
+            console.log('Array Index', arr[x]);
+        }
+        console.log('End of Code', x);
+        */
+       for(let x of arr)
+       {
+        console.log('Array', x);
+       }
+
+       console.log('====================');
+       let a, b, sum = 0;
+       for(a = 0, b = 10; a < 10; a++, b--)
+       {
+        console.log('A', a ,'B', b);
+        console.log('Sum', sum += a * b);
+       }
+       console.log('=====================');
+        function tail(o) { /* Return the
+        tail of linked list o*/
+        for(; o.next; o = o.next) /* empty */ ; /* Traverse while
+        o.next is truthy*/
+        return o;
+        }
+        tail('Hellworld');//complicate example
+    </script>
+</html>

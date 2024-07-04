@@ -1,0 +1,15 @@
+Let me answer since this is a great one
+ဒီကောင်ကိုနားလည်ဖို့ဆို JS runtime ကိုသိရမယ်ဗျ event loop concept နဲ့ macro task queue, micro task queue ရယ် ပေါ့
+အဖြေကတော့ 4, 5, 6, 1, 2, 3 ပါ
+order of execution ကတော့ ဒီလိုပါ
+အရင်ဆုံး line by line run ပါတယ်
+1. Promise.resolve() ကို run တယ် promise object ဆောက်တယ် resolve ကိုတန်းခေါ်တဲ့အတွက် fulfilled state ဖြစ်မယ် result က ဘာမှမပြန်လို့ undefined
+2. .then(()=> console.log(1)); ကိုခေါ်တယ် then ကိုခေါ်လို့ promise fullfill reaction record ဆောက်တယ် promise က resolve ပြီးသားမလို့ then ထဲက callback က micro task queue ထဲကိုဝင်သွားတယ်
+3. queueMicrotask(() => console.log(2)); queueMicrotask ကိုrunတယ် အဲ့ထဲက callback က queueMicrotask မလို့ micro task queue ထဲကိုဝင်သွားတယ်
+ဒီအချိန်မှာ micro task queue ထဲမှာ ()=> console.log(1), () => console.log(2) ရောက်နေပြီ call stack ပေါ်မတင်ရသေးလို့ console မှာမပေါ်သေးဘူး
+4. setTimeout(()=> console.log(3), 0); setTimeout run တယ် setTimeout က callback ကို web api မှာ register လုပ် တယ် 0 မလို့ ချက်ချင်း macro task မှာ ဝင်သွားတယ်
+5. console.log(4); ကို run တယ် synchronous မလို့ console မှာ 4 စပေါ်တယ်
+6. new Promise(()=> console.log(5)); ကို run တယ် အရင်ဆုံး new Promise မလို့ promise object ဆောက်တယ် ပြီးတော့ executor function ကို run တယ် အဲ့မှာ console.log(5) ကို run တော့ console မှာ 5 ပေါ်တယ် Promise က resolve/reject မလုပ်ထားတော့ Promise Pending ဖြစ်နေတယ်
+7. (async ()=> console.log(6)) (); ကို run တယ် console.log(6) ကို run တော့ console မှာ 6 ပေါ်တယ်
+ဒီအချိန် console မှာ 4, 5, 6 ပေါ်သွားပြီ ပြီးမှ stack ပေါ်မှာဘာမှမရှိတော့တဲ့အတွက် event loop ကနေ micro task queue ကဟာတွေအရင် stack ပေါ်ခေါ်တင်တယ် အဲ့မှာ queue မှာ ရှိနေတဲ့ ()=> console.log(1), () => console.log(2) ကို run တော့ 4, 5, 6, 1, 2 ပေါ်မ​ယ် micro task queue မှာ ဘာမှမရှိတော့မှ macro task queue ထဲကကောင်တွေကို event loop ကနေ stack ပေါ်ခေါ်တင်တယ် အဲ့မှာ ()=> console.log(3)) ကို run တယ်
+နောက်ဆုံး 4, 5, 6, 1, 2, 3 ရတယ် Hope this explain to you

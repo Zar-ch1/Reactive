@@ -1,0 +1,12 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+    <script>
+        let obj = { name: 'TK', age: 39};
+        Object.freeze(obj);
+        obj.name = 'wai';//won't effect obj date becoz of freeze
+        obj.age = 20;//won't effect
+        console.log('Obj', obj);
+        let obj2 = {...obj};
+        console.log('obj2', obj2);
+    </script>
+</html>

@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <style>
+        ol>li:nth-child(even)
+
+        /*css selector ID select with hash#*/
+            {
+            background-color: lightblue;
+        }
+        #container
+        {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+        <li>Five</li>
+    </ol>
+    <div style="color: red;" id="container" class="container">
+        Container
+        <div>
+            Another
+        </div>
+        <span>
+            Child of div
+        </span>
+    </div>
+    <div class="container">
+        <form>
+            Name <input type="text", name="username">
+            Password <input type="password", id="password">
+        </form>
+        Container2
+        <span>
+            Child of div2
+        </span>
+    </div>
+</body>
+<script>
+    console.log('Query Selector ol>li:nth-child(even)', document.querySelectorAll('ol>li:nth-child(even)'));//n^th child with even
+    console.log('Query Selector div+span', document.querySelectorAll('div+span'));//+
+    console.log('Query Selector div~span', document.querySelectorAll('div~span'));//sibling 
+    console.log('Query Selector div,span', document.querySelectorAll('div,span'));//muliple select with comma
+    console.log('getElementByName ', document.getElementsByName('username'));//get by name
+    console.log('getElementByTagName ', document.getElementsByTagName('div'));//get by tag name
+    console.log('getElementByClassName', document.getElementsByClassName('container'));//get by class name
+    console.log('form.password', document.forms[0].password);
+
+</script>
+</script>
+
+</html>

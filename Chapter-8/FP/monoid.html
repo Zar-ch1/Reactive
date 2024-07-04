@@ -1,0 +1,31 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+    <script>
+        let sum = { empty : ()=>0,
+                    concat : (x,y)=>x+y};
+        console.log(sum.empty());//expect 0
+        console.log(sum.concat(1,2));//expect 3
+        let min = { empty: ()=>Number.MAX_VALUE,
+                    concat: (x,y)=> x<y?x:y};
+        console.log(min.empty());//number.max_value
+        console.log(min.concat(1,2));//1
+        let max = { empty: ()=>Number.MIN_VALUE,
+                    concat: (x,y)=> x<y?y:x};
+        console.log(max.empty());//number.min_value
+        console.log(max.concat(1,2));//2
+        let fold = function(array, monoid){
+            let accumulator = monoid.empty();//accumulator = 0
+            /*                  what to function / identity or initial value
+            return array.reduce(monoid.concat, monoid.empty);
+            */
+           for(const item of array)
+           {
+                accumulator = monoid.concat(accumulator, item); //accumulator += (0 + item)
+           }
+           return accumulator;
+        }
+        let arr = [1,2,3,4];
+        console.log('sum_fold', fold(arr, sum));
+        console.log('min_fold', fold(arr, min));
+    </script>
+</html>

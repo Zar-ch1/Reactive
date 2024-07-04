@@ -1,0 +1,34 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+    <script>
+        /*let count = 0;
+        let count2 = R.inc(count);
+        console.log(count2);
+        */
+       let double = (x)=>x*2;
+       let container = (value)=>({ value,
+                                                //apply coming func with value in container and return the container
+                                   map(fn){ return container(fn(value))},
+                                   valueOf(){ return value}               
+    });
+       let count = container(10);
+       console.log('count_container', count);
+       let count2 = count.map(R.inc)
+                         .map(double); //shallow becoz map() return the new container
+       console.log('count2', count2);
+       console.log('=============================');
+       //Rule 1 of functor
+       let identity = (x)=>x;//that is identity function
+       console.log('Rule-1', count.map(identity).value == count.value);
+
+       //Rule 2 of functor
+       let pipe = (funcA)=>(funcB)=>(x)=>funcB(funcA(x));
+       let newFunc = pipe(R.inc)(double);
+       let counter3 = count.map(newFunc);
+       let counter4 = count.map(R.inc)
+                           .map(double);
+       console.log('count3', counter3.value);
+       console.log('count4', counter4.value);
+       console.log('Rule-2(count3.value == count4.value)', counter3.value == counter4.value);
+    </script>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <script>
+        /*
+        function process()
+        {
+            console.log('Process Start');
+            setTimeout(()=>console.log('Done'), 3000);
+        }
+        */
+        function addAsync(a,b, callback)//callback is just func
+        //that will call when needed it
+        {
+            console.log('Process Start');
+            let result = a + b;
+            setTimeout(()=>{
+                console.log('Done', result);
+                callback(result);
+            }, 3000);
+        }
+        console.log('Start');
+        addAsync(2,3, (x)=>console.log('Result', x));
+        console.log('End');
+    </script>
+</html>

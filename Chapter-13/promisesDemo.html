@@ -1,0 +1,20 @@
+<html>
+<script>
+    let p1 = fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(resp=>{console.log('LOG', resp);
+            return resp;
+        });
+    let p2 = p1.then(response => response.json())
+        .then(json=>json.title)
+        .then(title=>title.toUpperCase())
+        .then(console.log);//no need to bracket
+    console.log('Done');
+
+    fetch('https://jsonplaceholder.typicode3.com/todos2/1')
+        .then(resp=>{console.log('LOG2', resp);
+            return resp;
+        }, (error)=>console.log('ERROR', error));//just like ROP
+
+</script>
+
+</html>

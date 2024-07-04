@@ -1,0 +1,29 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+    <script>
+        /*
+        function factorials(n)
+        {
+            if(n===0)
+            {
+                return 1;
+            }
+            else
+            {
+                return n * factorials(n-1);
+            }
+        }
+        console.log('fac 4', factorials(4));
+        */                                 //1 is initial value //input
+       /*const range = (n)=>R.reduce(R.multiply, 1, R.range(1, n+1));
+       console.log(range(4));*/
+       const log = R.tap(console.log)
+        const pipeFact = (n)=> R.pipe(
+                               R.inc,
+                               log,
+                               R.range(1),
+                               log,
+                               R.reduce(R.multiply, 1))(n);
+        console.log(pipeFact(4));
+    </script>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <script>
+        let obj = { name : 'tk', age: 39, display(){console.log('Name', this.name, 'Age', this.age);}};
+        obj.display();
+        function Human(name, age)
+        {
+            this.name = name;
+            this.age = age;
+            this.display = function()
+            {
+                console.log('Name', this.name, 'Age', age);
+            }
+        }
+        const aungAung = new Human('Aung Aung', 20);//old school way of class
+        const hlaHla = new Human('Hla Hla', 19);//covert func to obj to perfume class
+        aungAung.display();
+        hlaHla.display();
+    </script>
+</html>

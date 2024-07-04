@@ -1,0 +1,16 @@
+<html>
+    <script>
+        let source = { 
+            username : 'Wai',
+            secretKey : 'nothing',
+            toJSON(){
+                console.log('call to JSON');
+                return {name:this.username};
+            }
+        }
+        let str = JSON.stringify(source);
+        console.log('obj to str wiht JSON ',str);
+        let obj = JSON.parse(str);
+        console.log('jsonSTR to Obj', obj);
+    </script>
+</html>

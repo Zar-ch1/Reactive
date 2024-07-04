@@ -1,0 +1,27 @@
+<html>
+    <script>
+        //map is similar with Object in internally;
+        let map_empty = new Map(); 
+        console.log('map', map_empty);
+        let map_m = new Map([['one', 1],['two', 2],['three', 3]]);//need to be an array when you put with static 
+        console.log('map with data', map_m);
+        let map = new Map();
+        map.set(1, 'Aung Aung');// need to be an array when u put with set method
+        map.set(2, 'Hla Hla');
+        console.log('map ', map);
+        console.log('get with .get', map.get(2));
+        console.log('map size', map.size);
+        console.log('map has', map.has(1));
+        let obj = {undefined: 'waiwai', null: 'somewhere'};
+        let mapObj = new Map(Object.entries(obj));
+        console.log('mapOBJ', mapObj);
+        for(const [key, value] of map)
+        {
+            console.log('Key of Map', key, 'Value of Map', value);
+        }
+        console.log('key ', map.keys());//return iterator
+        console.log('key ', map.values());//iterator can be
+        console.log('key ', map.entries());//destructring
+        map.forEach((value, key)=>console.log('key', key, 'value', value));
+    </script>
+</html>

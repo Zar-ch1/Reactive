@@ -1,0 +1,44 @@
+<html>
+    <script>
+        class Human{
+            constructor(name, age)//constructor is initialize of value in class
+            {
+                console.log('Human constructor');
+                this.name = name;//assign the value of comming through of class, that called Class
+                this.age = age;
+            }
+            display()
+            {
+                console.log('Name', this.name, 'Age', this.age);//when you need to use obj's properties
+                //must have this Keyword
+            }
+            work()
+            {
+                console.log('Name', this.name, 'is work here');
+            }
+        }
+        class Doctor extends Human{
+            constructor(name, age, speciality)
+            {
+                super(name, age);
+                this.speciality = speciality;
+                console.log('Doctor Constructor');
+            }
+            work()
+            {
+                super.work();
+                console.log(this.name, 'treat patient for', this.speciality);
+            }
+        }
+        let obj = new Human('tk', 39);//constructor will always Work when call and create the class with new 
+        obj.display();
+        obj.work();
+        console.log('obj', obj);
+        console.log('obj is instance Of human?', obj instanceof Human); //instanceOf ဆိုတာမျိုးရိုး obj သည် Human က ဆင်းသက်ပြီး
+        console.log('Human is instance Of Object?', Human instanceof Object);//Human သည် Object က ဆင်းသက်သည်။
+
+        let obj2 = new Doctor('Doctor wai', 25, 'general health');
+        obj2.display();
+        obj2.work();
+    </script>
+</html>

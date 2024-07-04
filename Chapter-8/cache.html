@@ -1,0 +1,27 @@
+<html>
+<script>
+    // 4 != 4*3*2*1;
+    factorial.cache = {};
+    function factorial(n) {
+        if (factorial.cache[n]) {
+            return factorial.cache[n];
+        }
+        
+        else {
+            console.log('compute ', n);
+            let result = 1;
+            for (let i = 1; i <= n; i++) {
+                result *= i;
+            }
+            factorial.cache[n] = result;
+            return result;
+        }
+
+        
+    }
+    console.log('factorial4 ', factorial(4));
+    console.log('factorial5 ', factorial(5));
+    console.log('factorial4 ', factorial(4));
+</script>
+
+</html>

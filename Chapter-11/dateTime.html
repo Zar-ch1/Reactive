@@ -1,0 +1,23 @@
+<html>
+    <script>
+        let date = new Date();
+        console.log('date', date);
+        let epoch = new Date(0); // Midnight, January 1st, 1970, GMT
+        console.log('epoch', epoch);
+        let obj = {
+            birthday : new Date().getTime()
+        };
+        let json =JSON.stringify(obj);
+        console.log('json date', json);
+
+        let ms = new Date().getTime();
+        date = new Date(ms);
+        console.log('Date', date);
+                    // YY   MM  DD  HH  MM  SS
+        date = new Date(2024, 4, 4, 12, 11, 11);
+        console.log('date with 0', date);
+        console.log('full year', new Date().getFullYear());
+        date.setFullYear(date.getFullYear()+1);
+        console.log('date', date);
+    </script>
+</html>

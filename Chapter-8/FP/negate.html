@@ -1,0 +1,16 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        let isEven = (n)=>n%2==0;
+        function not(fn)
+        {
+            return function(...args)
+            {
+                return !fn(...args);
+            }
+        }
+        let isOdd = not(isEven);
+        console.log('Even arr', arr.filter(isEven));
+        console.log('Odd arr', arr.filter(isOdd));
+    </script>
+</html>

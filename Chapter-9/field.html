@@ -1,0 +1,15 @@
+<html>
+    <script>
+        class Buffer{
+            #size = 0;//you can used #, when you need to hide
+            capacity = 4096;
+            display()
+            {
+                console.log('size', this.#size, 'capacity', this.capacity);
+            }
+        }
+        let buffer = new Buffer();
+        Buffer.size = 100;//not effect becoz of # 
+        buffer.display();
+    </script>
+</html>

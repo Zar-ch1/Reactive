@@ -1,0 +1,19 @@
+<html>
+    <script>
+        let pattern = /\D/;// non Degit / non degit use OR logic
+        console.log('/\D/.test AB', pattern.test('AB'));
+        console.log('/\D/.test 12', pattern.test('12'));
+        console.log('/\D/.test e1e', pattern.test('e1e'));//becoz \D just only test first letter
+        pattern = /\s/;// \s is white space?
+        console.log('/\s/.test ""', pattern.test(''));
+        console.log('/\s/.test "t k"', pattern.test('t k'));
+        pattern = /\S/;// \S is Non white space?
+        console.log('/\S/.test "hello"', pattern.test('hello'));
+        console.log('/\S/.test "t k"', pattern.test('t k'));
+        pattern = /Java|Python/;// | is OR
+        console.log('/Java | python/.test Java', pattern.test('Java'));
+        console.log('/Java | python/.test Python', pattern.test('Python'));
+        console.log('/Java | python/.test C', pattern.test('C'));
+        
+    </script>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <script>
+        "use strict";
+        function hello()
+        {
+            console.log('This', this);
+            //this is Window without useStrict Mode
+            //this meaning is current obj
+            //in Strict Mode 'This return undefined'
+        }
+        hello();
+        let obj = {
+            name : 'wai',
+            age : 39,
+            name : 'lynn'
+        }
+        console.log(obj);
+    </script>
+</html>

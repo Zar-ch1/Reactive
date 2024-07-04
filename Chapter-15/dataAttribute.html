@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="container" data-something="10000" data-another-thing="20000">Container</div>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>One</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Two</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    let container = document.getElementById('container');
+    console.log('data attribute ', container.dataset.something);//get data-att by dataset dot
+    console.log('data attribute multi', container.dataset.anotherThing);//multi data-attribute / Dash to Capital letter
+    //container.innerText = 'change';//recomend for content'text
+    //container.innerText = '<h1>change</h1>';
+    //container.innerHTML = '<h1>change</h1>';//innerHTML may cause XSS attack
+    //container.outerText = '<h2>Chang</h2>';//will change the whole element just like replace
+    container.outerHTML = '<h2>Chang</h2>';
+
+
+
+</script>
+
+</html>

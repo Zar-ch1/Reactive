@@ -1,0 +1,33 @@
+<html>
+    <script>
+        let circle = {
+            radius: 20, 
+            get aera(){
+                return Math.PI * this.radius* this.radius;
+            }
+        }
+        console.log('Areea', circle.aera);
+        console.log('=========');
+        function hello(){
+            console.log('Hello');
+        }
+        hello();
+        window.hello();
+        window['hello']();
+        this.hello();
+        this['hello']();
+        window.hello.call();
+        window.hello.apply();
+        window.hello.bind()();//becoz bind return the method or function so need to receive with prathese
+        window['hello'].call();
+        window['hello'].apply();
+        window['hello'].bind()();
+        console.log('==');
+        this.hello.call();
+        this.hello.apply();
+        this.hello.bind()();//becoz bind return the method or function so need to receive with prathese
+        this['hello'].call();
+        this['hello'].apply();
+        this['hello'].bind()();
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<script>
+    // let circle = {
+    //     radius: 3,
+    //     getArea() {
+    //         return Math.PI * this.radius * this.radius;
+    //     },
+    //     get area() {
+    //         console.log('call getter');
+    //         return Math.PI * this.radius * this.radius;
+    //     }
+
+    // }
+    // console.log(circle.getArea());
+    // console.log('get', circle.area);
+    console.log('=============');
+    let obj = {
+        _age: 26,
+        get age() { return this._age; },
+        set age(newValue) {
+                console.log('New Value', newValue);
+            if(newValue > 0 && newValue <= 100) {
+                this._age = newValue;
+            }
+        }
+    };
+    console.log('Age', obj.age);//getting
+    obj.age = 200;//setting
+    obj.age = 35;
+    console.log('objAge', obj.age);
+</script>
+
+</html>

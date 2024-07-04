@@ -1,0 +1,22 @@
+<html>
+    <script>
+        let target = {x:1}, source = {y:2, z:3, address: { city: 'YGN'}};
+        for(let p in source)
+        {
+            target[p] = source[p];//assignment with equality so target have property and value
+            console.log('loopProperty', p);
+            console.log('assignPtoTarget', target[p]);
+            //copy/ extend lote tl loh khaw tl
+            //address is obj so use reference sematics
+        }
+        console.log('target', target);
+        let obj3 = {...target};
+        console.log('SpreadOperator', obj3);
+        let str = JSON.stringify(obj3);/*use
+        JSON.stringify obj to string*/
+        console.log('Str' , str);
+        let obj4 = JSON.parse(str);
+        console.log('deepClone', obj4);
+        console.log('vs', obj4.address === obj3.address);
+    </script>
+</html>

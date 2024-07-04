@@ -1,0 +1,39 @@
+<html>
+    <script>
+    //    let done = false;
+       function pay(card)
+       {
+        console.log('Payment', card);
+       }
+       function another()
+       {
+        console.log('Another');
+       }
+       function onceAndAfter(fn, after)
+       {
+        let done = false;//catch state with Closure
+        return function(...args)//that is closure and HOF
+        {
+            if(!done)
+            {
+                done = true;
+                return fn(...args);//why need return? when payment func had return value that will occur error
+                //that why need return 
+            }
+            else
+            {
+                return after(...args);
+            }
+        }
+       }
+       let payOnce = onceAndAfter(pay, ()=>console.log('Payment have been already'));
+       payOnce('A');
+       payOnce('B');
+       payOnce('C');
+       another = onceAndAfter(another, ()=>console.log('Another have been already'));//override the another function
+       another();
+       another();
+       another();
+       let arr = new Array(12);
+    </script>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <script>
+        function curry(url)
+        {
+            return function(method)
+            {
+                console.log('URL', url, 'call with method', method);
+            }
+
+        }
+        let api = curry('www.api.com');
+        api('Post');
+        api('Get');
+    </script>
+</html>

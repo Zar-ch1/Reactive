@@ -1,0 +1,45 @@
+<html>
+    <script>
+        let obj = {
+            name : 'wai',
+            age : 26,
+            'Key1' : 'Value1',
+            key2 : 'Value2',
+            'main title' : 'Somewhere',
+            'Town' : 'YGN'
+        }
+        obj['lee'] = 'Colothes';
+        let pName = 'Key1';/*set the propterty name
+        in variable with string(double or single quote)*/ 
+        let pNamm = name;/*set the value name to pNamm variable
+        . in this case 'name' is not defined so when call with 
+        obj[pNamm] that will return undeined. So when you use dynamic
+        lookup 'YOU MUST ALWAYS USE STRING'*/
+        console.log('Age', obj.age);
+        console.log('Name', obj['name']);
+        console.log('Key1 with static', obj.Key1);
+        console.log('Key1 with dynamic', obj[pName]);
+        console.log('name with dynamic', obj[pNamm]);
+        console.log('Special Char', obj['main title']);
+        console.log('Key2 with noString', obj.key2);
+        console.log('object', obj);
+        console.log('dynamic call with string', obj['lee']);
+        console.log('Static call', obj.Town);
+        console.log('in Operator', 'style' in obj);
+        //in operator only test properties and he don't
+        //care about exist vlaue or not
+        let obj2 = {};
+        obj2[1] = 100;
+        obj2['2'] = 200;
+        obj2['key3'] = 300;
+        console.log('Obj2' , obj2);
+        console.log('call with string', obj2['key3']);
+        for(let p in obj2)
+        {
+            console.log('forInObj2', p);
+        }
+        console.log('isEnumerable', obj2.propertyIsEnumerable('2'));
+        console.log('isEnumerabletoString', obj2.propertyIsEnumerable('toString'));
+        console.log('keywithObjectkey', Object.keys(obj2));//show with array
+    </script>
+</html>

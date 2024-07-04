@@ -1,0 +1,19 @@
+<html>
+    <script>
+        function max(first, ...numbers)
+        {
+            console.log(first, numbers);
+            return Math.max(...numbers);
+        }
+        console.log('Max', max(3,1,-5));
+        console.log('Max', max(3,1,-5,5,0));
+        console.log('Max', max(3,1));
+        console.log('=======');
+        function maxOld()//must empty  
+        {
+            console.log('Arguments', arguments);
+            return Math.max.apply(null, arguments);
+        }
+        console.log('maxOld', maxOld('1',2,'9',3,4,'5'));//string conversion
+    </script>
+</html>

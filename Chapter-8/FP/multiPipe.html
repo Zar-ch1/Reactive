@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function pipe(...fns)
+        {
+            return function(x)
+            {
+                                        //accumulator, current and initial value
+                let returns = fns.reduce((input, fn)=>fn(input),x)
+            }
+        }
+        function length(str)
+        {
+            return str.length;
+        }
+        let add = (x)=>++x;
+        let double = (x)=>x*x;
+        let log = (x)=>console.log(x);
+        let newFunc = pipe(length, add, double);
+        console.log(newFunc('hello'));
+    </script>
+</html>

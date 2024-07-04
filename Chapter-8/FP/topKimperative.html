@@ -1,0 +1,28 @@
+<html>
+    <script>
+        let nums = [1,1,1,2,2,3], K = 2;
+        let frequency = {};
+        /* 
+           frequency = { '1' : 1 or more}
+        */
+       for(const item of nums)
+       {
+        if(frequency[item])
+        {
+            frequency[item]++;
+        }
+        else
+        {
+            frequency[item]=1;
+        }
+       }
+       let freArr = Object.entries(frequency);
+       console.log('freArr', freArr);
+       console.log('frequncey', frequency);
+       freArr.sort((a,b)=>a[0]-b[0]);
+       console.log('sort freArr', freArr);
+       let mostFreqItem = freArr.map(item=>item[0]);
+       console.log('most Frequenc Item', mostFreqItem);
+
+    </script>
+</html>

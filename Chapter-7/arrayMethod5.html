@@ -1,0 +1,16 @@
+<html>
+    <script>
+        let arr = [1, 2, 3, 4];
+        console.log('fill', arr.fill(0, 2, 4));
+        let arr1 = ['a', 'b', 'c', 'd', 'e'];
+        console.log('withIn', arr1.copyWithin(0,3,4));//delete from index 0 and copy from index 3;
+        console.log('withIn', arr1.copyWithin(0,3,5));
+        console.log('withIn', arr1.copyWithin(1,3));
+        console.log('arr1', arr1);//modify the orgin arr1
+        let arr2 = [10, 20, 30, 40, 20];
+        console.log('slice-', arr2.slice(1, -1));
+        console.log('orgin arr', arr2);
+        console.log('lastIndexOf', arr2.lastIndexOf(20));//last index
+        
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <script>
+        let pattern = /[xyz]/;//X or Y or Z
+        console.log('has x? with /[xyz]/(expression)', pattern.test('expression'));
+        console.log('has y? with /[xyz]/(yellow)', pattern.test('yellow'));
+        console.log('has z? with /[xyz]/(zebra)', pattern.test('zebra'));
+        console.log('has z? with /[xyz]/(apple)', pattern.test('apple'));
+        pattern = /[a-z]/;//a to z (within a to z)
+        console.log('/[a-z]/(abc)', pattern.test('abc'));
+        console.log('/[a-z]/(zero)', pattern.test('zero'));
+        console.log('/[a-z]/(12)', pattern.test('12'));
+        console.log('/[a-z]/(BANANA)', pattern.test('BANANA'));
+        pattern = /[a-zA-Z]/;//a to z (lower and upper)
+        console.log('/[a-zA-Z]/(APPLE)', pattern.test('APPLE'));
+        pattern = /[a-zA-Z0-9]/;//a to z OR A to Z OR 0 to 9 
+        console.log('[a-zA-Z0-9].test AB', pattern.test('AB'));
+        console.log('[a-zA-Z0-9].test 12', pattern.test('12'));
+        pattern = /\w/;//all word 
+        console.log('/\w/.test AB', pattern.test('AB'));
+        console.log('/\w/.test 12', pattern.test('12'));
+        pattern = /[^123]/;//negate 123, anything expect 123
+        //with 'caret in square bracket'
+        console.log('/[^123]/.test AB', pattern.test('AB'));
+        console.log('/[^123]/.test 12', pattern.test('12'));
+        pattern = /./;// do is anything OK
+        console.log('/./.test AB', pattern.test('AB'));
+        console.log('/./.test 12', pattern.test('12'));
+        pattern = /^\d*$/;//just one digit 
+        console.log('/^\d*$/.test AB', pattern.test('AB'));
+        console.log('/^\d*$/.test 12', pattern.test('12'));
+        console.log('/^\d*$/.test 1', pattern.test('1'));
+    </script>
+</html>

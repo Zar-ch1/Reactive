@@ -1,0 +1,20 @@
+<html>
+    <script>
+        let obj = {
+            data : 20,
+            toString(){
+                console.log('toString');
+                return '123'; 
+            },
+            valueOf(){
+                console.log('valueOf');
+                return {};
+            }
+        }
+        console.log('objtoString', ''+obj.data);//objtoString with string concat
+        console.log('objtoString()', ''+obj);
+        console.log('objtoNum', +obj);//check toSTring() and if have toString ==> obj -> String and string -> number
+        console.log('objtoBoolean', !!obj);
+        console.log('obj+3', obj+3);
+    </script>
+</html>

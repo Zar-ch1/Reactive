@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let a = 5;
+        let b = 3;
+        let x = 1024;
+        console.log('a', a.toString(2));
+        console.log('b', b.toString(2));
+        console.log('a & b', (a&b).toString(2));
+        console.log(x.toString(2));
+        let z = 0b1101;
+        console.log(z);
+        console.log('not~',~a, (~a).toString(2));
+        console.log('=========');
+        let c = 8;
+        console.log('toBinary', c, c.toString(2));
+        console.log('shiftL<<', c<<1, (c<<1).toString(2));
+        console.log('shiftR>>', c>>1, (c>>1).toString(2));
+        let d = -100;
+        console.log('dtoBinary', d.toString(2));
+        console.log('SRzero', (d>>>0));
+
+        console.log('=============================');
+        let e = true;
+        let f = 'false';
+        console.log('e & f', e | f);
+    </script>
+</html>

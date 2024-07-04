@@ -1,0 +1,48 @@
+<html>
+<script>
+    function tap(fn) {
+        return function (x) {
+            fn(x);
+            return x;
+        }
+    }
+    function pipe(...fns) {
+        return function (x) {
+            //accumulator, current and initial value
+            return fns.reduce((input, fn) => fn(input), x)
+        }
+    }
+    let nums = [1, 1, 1, 2, 2, 3], K = 2;
+
+    /* 
+       frequency = { '1' : 1 or more}
+    */
+    function groupbyKey(arr) {
+        return arr.reduce((group, item) => {
+            /*
+            if(group[item])
+            {
+                group[item]++;
+            }
+            else
+            {
+                group[item]=1;
+            }
+            return group;
+            */
+            return (group[item]) ? (group[item]++, group) : (group[item] = 1, group);
+        }, {});
+
+    }
+    function sort(arr) {
+        return arr.sort((a, b) => b[1] - a[1]);
+    }
+    function getFirst(arr) {
+        return arr.map(item => item[0]);
+    }
+    const log = tap(console.log);
+    let topK = pipe(groupbyKey, log, Object.entries, log, sort, log, getFirst, log);
+    console.log('topK', topK(nums));
+</script>
+
+</html>

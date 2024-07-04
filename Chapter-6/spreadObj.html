@@ -1,0 +1,10 @@
+<html>
+    <script>
+        let obj = { x: 100, address:{city:'YGN'}}, obj2 ={ y:200, z:300};
+        let obj3 ={ ...obj, ...obj2};
+        //creat obj with spread/copy semantics
+        console.log('spread OBJ', obj3);
+        console.log(obj.x === obj3.x);//value copy
+        console.log(obj.address === obj3.address);//reference copy
+    </script>
+</html>

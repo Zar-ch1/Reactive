@@ -1,0 +1,57 @@
+<html>
+    <script>
+        //func to infinity
+        function* toInfinity(to)
+        {
+            let n = to;
+            while(true)
+            {
+                yield n++;
+            }
+        }
+        //take func
+        function* take(collection, count)
+        {
+            for(let i=0; i<count; i++)
+            {
+                yield collection.next();
+            }
+        }
+        //[1..100000].filter(item=>item<20);
+        function* map(collection, mapper)
+        {
+            for(const item of collection)
+            {
+                yield mapper(item);
+            }
+        }
+        let arr = [10, 20, 30, 40];
+        for(const item of map(arr, (x)=>x+1))
+        {
+            console.log('Item', item);
+        }
+
+        function* filter(collection, predicate)
+        {
+            for(const item of collection)
+            {
+                if(predicate(item))
+                {
+                    yield item;
+                }
+            }
+        }
+        for(const i of filter(arr, (x)=>x<30))
+        {
+            console.log('I', i);
+        }
+        let data_infin = toInfinity(0);
+        let result = filter(data_infin, (x)=>x%2==0);
+
+        for(const item of take(result, 5))
+        {
+            console.log('Item', item);
+        }
+        
+    </script>
+</html>

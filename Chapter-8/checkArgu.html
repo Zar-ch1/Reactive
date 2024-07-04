@@ -1,0 +1,16 @@
+<html>
+    <script>
+        function process(a,b)
+        {
+            if(arguments.length<process.length)
+            {
+                console.warn('Function', arguments.callee.name, 'expect', process.length, 'but only found', arguments.length)
+            }
+            console.log('Function.length', process.length, 'Arguments.lenght', arguments.length);
+            console.log('A', a, 'B', b);
+        }
+        process();
+        process(10);
+        process(20,30);
+    </script>
+</html>

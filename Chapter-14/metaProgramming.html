@@ -1,0 +1,33 @@
+<html>
+    <script>
+        let obj = {
+            name : 'TK',
+            age : null
+        };
+        let obj2 = {
+            name : 'TK',
+            age: 39,
+            address: 'Somewhere'
+        }
+        function check(obj)
+        {
+            return !!obj.name && !!obj.age;
+        }
+        console.log('Check boolean ', check(obj) );
+        function checkwithMeta(obj)
+        {
+            let response = true;
+            for(let prop in obj)
+            {
+                console.log('Check', obj[prop]);
+                response = response && obj[prop]!=undefined; 
+                
+            }
+            return response;
+        }
+        console.log('Check with mteta', checkwithMeta(obj2));
+        console.log('Descripttor', Object.getOwnPropertyDescriptor(obj2, 'name'));//can show the attribute of Obj's property
+                                                                                 //parameter one is Obj and next para must be prop name
+        
+    </script>
+</html>

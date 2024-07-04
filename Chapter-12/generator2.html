@@ -1,0 +1,30 @@
+<html>
+    <script>
+        function *demo()
+        {
+            //let y0 = yield 0;
+            console.log('First');
+            let y1 = yield 1;
+            console.log('Second', y1);
+            let y2 = yield 2;
+            console.log('Third', y2);
+            let y3 =  yield 3;
+            console.log('Four', y3);
+            return 4;
+            //throw new Error('Something unexpected');
+        }
+        let gen = demo();
+        let n1 = gen.next('a');//'a' para no effective, 
+        //just call next() method of generator
+        console.log('Generator Yield', n1);
+        
+        let n2 = gen.next('b');
+        console.log('Generator Yield', n2);
+        let n3 = gen.next('c');
+        console.log('Generator Yield', n3);
+        let n4 = gen.next('d');
+        console.log('Generator Yield', n4);
+
+        console.log('Next', gen.next());
+    </script>
+</html>

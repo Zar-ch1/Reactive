@@ -1,0 +1,19 @@
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+<script>
+    console.log('R.indentity', R.identity(4));
+    console.log('R.add_1', R.add(1));
+    console.log('R.add_2', R.add(2)(3));
+    console.log('R.equals', R.equals(1, 1));
+    console.log('R.equals', R.equals(1, 2));
+    const equals3 = R.equals(3);
+    console.log('equals3', equals3);
+    const a = 3;
+    console.log('R.all', R.all(equals3)([3, 3, 3]));
+    const average = R.converge(R.divide, [R.sum, R.length])
+    average([1, 2, 3, 4, 5, 6, 7]) //=> 4
+    const even = x=>x%2==0;
+    console.log('R.count', R.count(even, [1,2,3,4,5]));
+</script>
+
+</html>

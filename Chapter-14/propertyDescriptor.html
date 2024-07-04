@@ -1,0 +1,21 @@
+<html>
+    <div>
+        Name <div id="name"></div>
+        Age <div id="age"></div>
+    </div>
+    <script>
+        let obj = {age: 39, address: 'somewhere', id: 1};
+        Object.defineProperty(obj, 'name', {
+            value : 'TK',
+            writable: false,
+            configurable: true,
+            enumerable: false
+        })
+        console.log('obj', obj);
+        obj.name = 'Wai';//not effect becoz of wirtable=false
+        console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
+        delete obj.name;
+        console.log('obj_', obj);
+        console.log('Obj Key', Object.keys(obj));
+    </script>
+</html>

@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <style>
+        #container
+
+        /*css selector ID select with hash#*/
+            {
+            height: 200px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="text">
+        <button type="button">OK</button>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="container">Container
+        <div>
+            child of container
+            <span>
+                span1 of container
+            </span>
+        </div>
+        <span>
+            span2 of container
+        </span>
+    </div>
+    <div id="container2" class="warning">Container2
+        <span> span3 </span>
+    </div>
+    <span class="warning">Container3
+    </span>
+</body>
+<script>
+    console.log('Query', document.querySelector('#container'));//select with id 
+    console.log('QuerySelectorAll', document.querySelectorAll('div'));
+    console.log('QuerySelectorAll .class', document.querySelectorAll('.warning'));
+    console.log('QuerySelectoAll div.class', document.querySelectorAll('div.warning'));
+    console.log('QuerySelectorAll button[type=button]', document.querySelectorAll('button[type="button"]'));
+    console.log('QuerySelectorAll #container span', document.querySelectorAll('#container span'));//decedent
+    console.log('QuerySelectorAll div span', document.querySelectorAll('div span'));//decedent not need to be direct child 
+    console.log('QuerySelectorAll #container > span', document.querySelectorAll('#container > span'));//direct child 
+    console.log('QuerySelectorAll body>div:first-child', document.querySelectorAll('div:first-child'));
+</script>
+</script>
+
+</html>

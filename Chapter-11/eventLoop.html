@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <button type="button" id="btnClick">Click</button>
+    </body>
+    <script>
+        setTimeout(()=>console.log('hello'), 0);
+        setTimeout(()=>console.log('hello2'), 0);
+        setTimeout(()=>console.log('hello3'), 0);
+        document.getElementById('btnClick').addEventListener('click', ()=>console.log('Clicked'))
+        console.log('World');//world must be first, becoz of stack memory
+        let start = new Date();
+        let end = new Date();
+        while((end -start)<2000)
+        {
+            end = new Date();
+        }
+        console.log('after 2 second');
+    </script>
+</html>

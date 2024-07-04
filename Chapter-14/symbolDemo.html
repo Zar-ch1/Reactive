@@ -1,0 +1,28 @@
+<html>
+<script>
+    console.log('{}.toString', {}.toString());
+    console.log('Object.prototype.toString.call([])', Object.prototype.toString.call([]));
+    console.log('Object.prototype.toString.call(0)', Object.prototype.toString.call(0));
+    console.log('Object.prototype.toString.call(()=>10)', Object.prototype.toString.call(() => 10));
+
+    function classOf(o) {
+        return Object.prototype.toString.call(o).slice(8, -1);
+    }
+    console.log('classof({})', classOf({}));
+    console.log('classof([])', classOf([]));
+    console.log('classof(0)', classOf(0));
+
+
+    let obj = {};
+
+    console.log('classOf(obj)', classOf(obj));
+
+    class human{
+        get [Symbol.toStringTag]() { return "human"; }
+// the
+    };
+    console.log('classOf (new human)', classOf(new human()));
+    
+</script>
+
+</html>

@@ -1,0 +1,25 @@
+<html>
+    <script>
+        let obj = {
+            name: 'wai',
+            age:26,
+            display(message)
+            {
+                console.log('Hello', message, 'Name', this.name, 'AGE', this.age);
+            }};
+        let obj2 = {
+            name : 'Something',
+            age: 100
+        }
+        obj.display('How r you');
+        let m = obj.display;
+        m.call(obj, 'Are you fine?');//call() with obj with parameter
+        m.call(obj2, 'Ok, im fine');//obj2 have no display method but can be borrowing this properties
+        let arr = [10, 20, 1, 100, 5];
+        console.log('math ', Math.max(1,2));
+        console.log('math_arr', Math.max.apply(null, arr));//
+        console.log('latestway_arr', Math.max(...arr));
+        let newMethod = obj.display.bind(obj2);
+        newMethod('Work with bind');
+    </script>
+</html>

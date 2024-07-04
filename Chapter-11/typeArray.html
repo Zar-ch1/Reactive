@@ -1,0 +1,14 @@
+<html>
+    <script>
+      //let arr = new Array(1000000);
+      //let arr = new Int8Array(1000000);
+      const littleEndian =(()=>{
+        const buffer = new ArrayBuffer(2);
+        new DataView(buffer).setInt16(0, 256, true /*little endian */);
+        //Int16Array uses the platform's endianness.
+        console.log(new Int16Array(buffer)[0]);
+        return new Int16Array(buffer)[0]===256;
+      })();
+      console.log('little endian', littleEndian);// ture or false
+    </script>
+</html>

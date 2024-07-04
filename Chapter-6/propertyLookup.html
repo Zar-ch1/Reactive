@@ -1,0 +1,13 @@
+<html>
+    <script>
+        let first = { x : 100,
+                      arr : [10, 20]};
+        let second = Object.create(first);
+        second.y = 200;
+        let third =  Object.create(second);
+        third.z = 300;
+        console.log('Third', third);
+        third.arr.push(30);
+        console.log(third.arr);
+    </script>
+</html>

@@ -1,0 +1,16 @@
+<html>
+    <script>
+        function counter(){
+            this.counter = 0;
+            this.unique = function (){
+                return this.counter++;
+            }
+        }
+        let id = new counter();
+        console.log('id', id.unique());
+        console.log('id', id.unique());
+        console.log('id', id.unique());
+        //that is OO code
+        //obj can hold state
+    </script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <script>
+        let worker = new Worker("worker.js");
+        console.log('Post message');
+        setInterval(()=>{
+            console.log('Hello');/*this code will block coz of js file runing the full of Stack
+            'when you call the js file, js file will run first all code at the time. so it have the some blocking code
+             you call stack is full and not have time to run other code'*/
+        },1000);
+        
+        worker.postMessage({
+            data : 5
+        });
+        worker.addEventListener('message',event=>{
+            console.log("Message received from worker ",event.data);
+        });
+        document.addEventListener('click',(event)=>{
+            console.log('Click');
+        });
+  </script>
+</head>
+</html>

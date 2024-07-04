@@ -1,0 +1,15 @@
+<html>
+    <script>
+        outer:for(let i=0; i<4; i++)
+        {
+            console.log('Hello');
+            inner:for(let j=0; j<5; j++)
+            {
+                if(i==2)
+                break outer;
+                console.log(' World');
+            }
+
+        }
+    </script>
+</html>

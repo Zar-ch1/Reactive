@@ -1,0 +1,25 @@
+<html>
+    <script>
+        function greet()
+        {
+            console.log('Min Ga Lr Br');
+        }
+        greet();
+        function human(name, age)
+        {
+            console.log('this is constructor');
+            this.name = name;
+            this.age = age;
+            this.display = function()
+            {
+                console.log('Name', this.name, ' Age', this.age);
+            }
+        }
+        let obj = new human('Wai', 26);
+        let obj1 = new human('lynn', 30);
+        // console.log('obj', obj);
+        // console.log('obj1', obj1);
+        obj.display();//that is constructor calling
+        obj1.display();
+    </script>
+</html>

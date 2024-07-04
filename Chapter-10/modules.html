@@ -1,0 +1,13 @@
+<html>
+    <script>    
+        window.Modules = window.Modules || (function ()
+        {
+            function api()
+            {
+                console.log('API');
+            }
+            return {api}
+        })();
+        Modules.api();
+    </script>
+</html>

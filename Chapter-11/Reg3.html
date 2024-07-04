@@ -1,0 +1,30 @@
+<html>
+    <script>
+        let pattern = /\d/;
+        console.log('/\d/.test 1', pattern.test(1));
+        console.log('/\d/.test x', pattern.test('x'));
+        pattern = /^\d{9,11}$/;//start/end with degit and min/max length is 9 and 11
+        console.log('/^\d{9,11}$/.test 1', pattern.test(1));
+        console.log('/^\d{9,11}$/.test 123456789', pattern.test(1234567890));
+        pattern = /^\d{9,}$/;//start/end with degit and min length is 9 
+        //need comma ,
+        console.log('/^\d{9,}$/.test 12345', pattern.test(12345));
+        console.log('/^\d{9,}$/.test 123456789', pattern.test(1234567890));
+        pattern = /^\d{3}$/;//exactly length
+        console.log('/^\d{3}}$/.test 123', pattern.test(123));
+        console.log('/^\d{3}}$/.test 1234', pattern.test(1234));
+        console.log('/^\d{3}}$/.test 12', pattern.test(12));
+        pattern = /^\d?$/;//one degit or ? is Zero(so 1 or 0)
+        console.log('/^\d?$/.test 1', pattern.test(1));
+        console.log('/^\d?$/.test empty', pattern.test(''));
+        console.log('/^\d?$/.test 123', pattern.test(123));
+        pattern = /^\d+$/;
+        console.log('/^\d+$/.test 1', pattern.test(1));
+        console.log('/^\d+$/.test empty', pattern.test(''));
+        console.log('/^\d+$/.test 123', pattern.test(123));
+        pattern = /^\d*$/;
+        console.log('/^\d*$/.test 1', pattern.test(1));
+        console.log('/^\d*$/.test empty', pattern.test(''));
+        console.log('/^\d*$/.test 123', pattern.test(123));
+    </script>
+</html>

@@ -1,0 +1,10 @@
+<html>
+    <script>
+        function constfunc(v) {return()=> v;};//innner func will return v 
+        console.log(constfunc(10)());
+        let funcs = [];
+        for(var i=0; i<10; i++) 
+            funcs[i] = ()=>i;
+        console.log(funcs[0]());
+    </script>
+</html>

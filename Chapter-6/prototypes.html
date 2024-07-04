@@ -1,0 +1,20 @@
+<html>
+    <script>
+        let obj = {
+        }
+        console.log(obj);//child of Object
+        //parent
+        console.log(Object.prototype.prototype);
+        let obj2 = Object.create({
+            x : 1,
+            y : 2
+        });/* that syntax mean obj creat 
+        with giving the data to main Object 
+        with prototype*/ 
+        console.log('Obj2', obj2);
+        console.log('Obj2.x', obj2.x);
+        obj2.x = 100;
+        console.log(obj2);
+        console.log('obj2.x', obj2.x);
+    </script>
+</html>

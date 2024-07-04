@@ -1,0 +1,17 @@
+<html>
+    <script>
+        let arr = [10, 20, 30];
+        console.log('arrtoString', ''+arr);
+        console.log('arrtoNum', +arr);
+
+        let arr2 = [10];
+        console.log('arrtoNum', +arr2);//10
+        
+        console.log('[]', +[]);
+        console.log('[undefined]', +[undefined]);//arr[undefined]toString -> empty string -> toNumber get 0
+        console.log('[null]', +[null]);//arr[null]toString-> empty string -> toNumber get 0
+        console.log('[udefined], [null]', ''+([undefined, null]));
+        console.log('!![arr2]', !![arr2]);//arr2toString->10->toNum->10 so get true
+        console.log('!![undefined}', !![undefined]);
+    </script>
+</html>

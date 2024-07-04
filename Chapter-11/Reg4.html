@@ -1,0 +1,20 @@
+<html>
+    <script>
+        let pattern = /\d{3}|[a-z]{4}/;//degit 3 and a to z 4
+        console.log('/\d{3}|[a-z]{4}/.match("abcd")', 'abcd'.match(pattern));//mtach
+        console.log('/\d{3}|[a-z]{4}/.test 112', pattern.test(112));
+        console.log('/\d{3}|[a-z]{4}/.test xz12', pattern.test('xz12'));
+        console.log('/\d{3}|[a-z]{4}/.test x1', pattern.test('xz'));
+        console.log('/\d{3}|[a-z]{4}/.test abcdefghi', pattern.test('abcdefghi'));
+        pattern = /java(script)?/gi;//grouping and java or scipt /g is global
+        console.log('/java(script)?/.exec javascript', pattern.exec('javascript'));//exec is excute
+        console.log('/java(script)?/.Match() javascript and java', 'Javascirpt & java'.match(pattern));//exec is excute
+        console.log('/java(script)?/.exec javaprogramming', pattern.exec('javaprogramming'));//exec is excute
+        
+        console.log('=========================');
+        pattern = /(\w+)@([a-zA-Z]+)\.(com|org|gov)/;//grouping and email
+        console.log('/(\w+)@([a-zA-Z]+)\.([com|org|gov])/.exec user@domain.com', pattern.exec('user@domain.com'));//exec is excute
+
+        
+    </script>
+</html>

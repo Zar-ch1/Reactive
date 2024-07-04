@@ -1,0 +1,24 @@
+<html>
+    <script>
+        function pipe(...fns) {
+        return function (x) {
+            //accumulator, current and initial value
+            return fns.reduce((input, fn) => fn(input), x)
+        }
+    }
+        /*
+        function add(a){
+            return function(b){
+                return a+b;
+            }
+        }
+        */
+        const add = (a)=>(b)=>a+b;
+        console.log('add(2),(3)', add(2)(3));
+        function inc(x){
+            return x+1; 
+        }
+        let newFunc = pipe(inc, add(2));//add(2) is partially applied
+        console.log(newFunc(10));
+    </script>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <script>
+       class Human{
+            constructor(name, age)//constructor is initialize of value in class
+            {
+                console.log('Human constructor');
+                this.name = name;//assign the value of comming through of class, that called Class
+                this._age = age;
+            }
+            set(newAge)//when you assign the newAge, setter will work
+            {
+                console.log('setter', newAge);
+                if(newAge>0 && newAge>100)
+                {
+                    this.age = newAge;
+                }
+            }
+            display()//method 
+            {
+                console.log('Name', this.name, 'Age', this.age);//when you need to use obj's properties
+                //must have this Keyword
+            }
+            work()
+            {
+                console.log('Name', this.name, 'is work here');
+            }
+        }
+        Human.prototype.eat = function(){
+            console.log('name', this.name, 'eat');
+        }
+        let obj = new Human('tk', 39);
+        obj.age = 49;
+        console.log('obj', obj);
+        obj.eat();
+
+        class Circle
+        {
+            constructor(radius)
+            {
+                this.radius = radius
+            }
+            get area()//getter used for computed properties
+            //compute properites is used the already have value with the formula 
+            {
+                return Math.PI*this.radius*this.radius;
+            }
+        }
+        const circle = new Circle(30);
+        console.log('circle', circle.area);//no need to parathese
+    </script>
+</html>

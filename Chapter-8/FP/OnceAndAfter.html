@@ -1,0 +1,60 @@
+<html>
+    <script>
+        function payment(Card)
+        {
+            console.log('Payment', Card);
+        }
+        function another()
+        {
+            console.log('Another');
+        }
+        function once(fn, after)
+        {
+            let done = false;
+            return function(...rest)
+            {
+                if(!done)
+                {
+                    done =  true;
+                    return fn(...rest);
+                }
+                else
+                {
+                    return after(...rest);
+                }
+            }
+        }
+        let payOnce = once(payment, ()=>console.log('Payment have been previously'));
+        payOnce('Card-A');
+        payOnce('Card-B');
+        let anotherOnce = once(another, ()=>console.log('Another have been previously'));
+        anotherOnce();
+        anotherOnce();
+        anotherOnce();
+        function outer()
+        {
+            let d = 100;
+            function inner()
+            {
+                return d++;
+            }
+            inner();
+            return d;
+        }
+        console.log(outer());
+        function func(fn)
+        {
+            let result = 0;
+            function inner()
+            {
+                return function(...args)
+                {
+                    if(!done)
+                    {
+                        return fn(...args);
+                    }
+                }
+            }
+        }
+    </script>
+</html>

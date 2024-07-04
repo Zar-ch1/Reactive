@@ -1,0 +1,24 @@
+<html>
+    <script>
+        function compose(funA, funB)
+        {
+            return function(x)
+            {
+                return funB(funA(x));
+            }
+        }
+        function length(str)
+        {
+            return str.length;
+        }
+        let add = (x)=>++x;
+        let double = (x)=>x*x;
+        let log = (x)=>console.log(x);
+        let pipe = compose(compose(add, double), log);//add=>double=>compose=>log=>compose
+        // log(newFun(4)); child way, you can use compose
+        pipe(1);
+        let newFunn2 = compose(length, pipe);//str's output is newFun's input, newFun accept just only one parameter
+        newFunn2('hello');
+
+    </script>
+</html>

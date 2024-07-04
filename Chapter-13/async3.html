@@ -1,0 +1,33 @@
+<html>
+<script>
+    async function getData() {
+        let urls = ['https://jsonplaceholder.typicode.com/todos/1', 'https://jsonplaceholder.typicode.com/todos/2'];
+        let promise = urls.map(url=>fetch(url).then(data=>data.json()));
+        console.log('promise', promise);
+        let data = await Promise.all(promise);
+        console.log('Promise.all', data);
+    }
+    //getData();
+    async function getDataTwo() {
+        let urls = ['https://jsonplaceholder.typicode.com/todos/1', 'https://jsonplaceholder.typicode.com/todos/2'];
+        let promises = urls.map(url=>fetch(url).then(data=>data.json()));
+        //console.log(promises);
+        /*for(const promise of promises)
+        {
+           let response = await promise;
+            console.log('Response', response);
+        }
+        */
+       for await(const promise of promises)// can use for await
+       // instead of  await in bracket
+       {
+         console.log('Promise', promise);
+       }
+      
+    }
+    getDataTwo();
+
+    
+</script>
+
+</html>

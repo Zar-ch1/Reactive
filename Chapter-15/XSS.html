@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <button type="button" id="btnWrite">Button</button>
+        <textarea name="text" id="txtData"></textarea>
+        <div id="container"></div>
+    </body>
+    <script>
+            document.getElementById('btnWrite')
+                    .addEventListener('click', ()=>{
+                        console.log('write clicked');
+                        let text = document.getElementById('txtData').value;
+                        document.getElementById('container').innerHTML = text;
+                    })
+    </script>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <script>
+        let aungAung = {
+            name : 'Aung Aung',
+            age : 23,
+            address : {
+                city : 'YGN',
+                township : 'somewhere'
+            },
+            display(){
+                console.log('Name', this.name, 'Age', this.age, 'Address', this.address);
+            }
+        }
+        let mgMg = {
+            name : 'Mg Mg',
+            age : 30,
+            address : {
+                city : 'MDY',
+                township : 'Chan Aye'
+            }
+        }
+        console.log('Aung Aung', aungAung);
+        console.log('Maung Maung address', mgMg.address.city);
+        aungAung.display();//just like function invoke
+        let date = new Date();
+        console.log(date);
+    </script>
+</html>

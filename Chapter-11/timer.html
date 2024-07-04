@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <button type="button" id="btnStopTimer">Stop</button>
+        <button type="button" id="btnStopInterval">Stop Interval</button>
+        <div id="clock">
+
+        </div>
+    </body>
+    <script>
+        document.getElementById('btnStopTimer').addEventListener('click', ()=>{console.log('btnStopTimer');
+            clearTimeout(timer1);
+        });
+        document.getElementById('btnStopInterval').addEventListener('click', ()=>{console.log('btnStopInterval');
+            clearInterval(interval1);
+        });
+        let timer1  = setTimeout(()=>{console.log('Hello')}, 2000);
+        console.log('Timer Registered');
+        let interval1 = setInterval(()=>{document.getElementById('clock').innerText = new Date}, 1000)
+    </script>
+</html>

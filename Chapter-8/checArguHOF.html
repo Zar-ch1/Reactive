@@ -1,0 +1,38 @@
+<html>
+    <script>
+        function check(fn)
+        {
+            return function(...rest)//get arguments with spread operator
+            {
+                    if(rest.length<fn.length)
+                {
+                    console.warn('Function', fn.name, 'expect', fn.length, 'but only found', rest.length)
+                }
+                // console.log('Name', fn.name, 'func.Length', fn.length, 'Argument.length', rest.length);
+                return fn(...rest);
+            }
+        }
+        function double(a)
+        {
+            return a*a;
+        }
+         function process(a,b)
+        {
+          console.log('A', a, 'B', b);
+        }
+        /*process();
+        process(10);
+        process(20,30);
+        */
+       let doublewithCheck = check(double);
+       console.log('Double_with_Check', doublewithCheck());
+       console.log('Double_with_Check', doublewithCheck(2));
+
+       let processwithCheck = check(process);
+       console.log('Process_with_Check', processwithCheck(1));
+       console.log('Process_with_Check', processwithCheck(1,2));
+
+
+
+    </script>
+</html>

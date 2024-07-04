@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let str = 'Hello World';
+        console.log('Length', str.length);
+        console.log('str[l]', str[0]);
+        console.log('str.Last', str[str.length-1]);
+        console.log('subString223', str.substring(4, 1));
+        console.log('slicString', str.slice(0,4));
+        console.log('subString(1, lenght)', str.substring(0, str.length));
+        console.log('slice', str.slice(4,1));
+        console.log('split', str.split(' '));
+        let items = 'apple:banana:orange:mango';
+        console.log('Split', items.split(':'));
+        console.log('indexof(e)', str.indexOf('e', 7));
+        console.log('include', str.includes('v'));
+        console.log('startWith', str.startsWith('H'));
+        console.log('endWith', str.endsWith('l'));
+        console.log('replace', str.replace('Hello', 'Hi'));
+        console.log('charCodeAt', str.charCodeAt('W'));
+        console.log('paddStart====>', str.padStart(20));
+        console.log('padEnd====>', str.padEnd(20, '*')+'<<<');
+        console.log('trim===>', str.trim());//trim space start and end
+        console.log('concat', 'Hello'.concat(' Lee Pal'));
+        console.log('repeat', str.repeat(5));
+        console.log(String.raw`LEE PAL`.length);
+    </script>
+</html>

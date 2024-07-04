@@ -1,0 +1,38 @@
+<html>
+    <script>
+        /*let done = false;
+        function payment()
+        {
+            if(!done)
+            {
+               console.log('Payment');
+               done = true;               
+            }
+            
+        }*/
+        function payment(Card)
+        {
+            console.log('Payment', Card);
+        }
+        function another()
+        {
+            console.log('Another');
+        }
+        function once(fn)
+        {
+            let done = false;
+            return function(...rest)
+            {
+                if(!done)
+                {
+                    done =  true;
+                    return fn(...rest);
+                }
+            }
+        }
+        let payOnce = once(payment);
+        payOnce('Card-A');
+        payOnce();
+        
+    </script>
+</html>

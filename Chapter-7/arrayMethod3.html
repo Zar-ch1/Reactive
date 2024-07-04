@@ -1,0 +1,20 @@
+<html>
+<script>
+    let arr = [10, 20, 3, 1, 6];
+    let index = arr.indexOf(1);
+    console.log('IndexOf', index);
+    let isOdd = item => item % 2 != 0;
+    let find = arr.find(isOdd);//give the first element of not equal zero
+    console.log('findex', find);
+    let f_index = arr.findIndex(isOdd);
+    console.log('f_index', f_index);
+    console.log('every', arr.every(isOdd));
+    console.log('some', arr.some(isOdd));
+    let arr1 = [1, 2, 3];
+    let rR = arr1.reduceRight((a,b)=>a**b);//1,2,3=>1,2**3=>1,9=>1**9=>9
+    console.log('rR', rR);
+    let test = 1**2**3;//left to right
+    console.log(test);
+</script>
+
+</html>

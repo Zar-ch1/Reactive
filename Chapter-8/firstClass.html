@@ -1,0 +1,28 @@
+<html>
+    <script>
+         //function as value, first class function
+         function hello()
+         {
+            console.log('Hello');
+         }
+         //Rule : 1
+         //can assign function to variable
+         let fun = hello;//when assign func to variable, no need parathese
+        fun();
+         //Rule : 2
+         //can pass function in parameter
+         function func(fn)//HOF function
+         {
+            fn();
+         }
+        func(hello);//when assign function argument in func, no need parathese
+         //Rule : 3
+         //can return function
+         function retFun()
+         {
+            return hello;//when return function in function, no need parathese
+            //HOF function
+         }
+         retFun()();
+    </script>
+</html>

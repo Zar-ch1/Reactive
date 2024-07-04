@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let arr = ['hello', 'hi', 'how are you?'];
+        /* arrow function explanation => 
+            functionn getLength(str)
+            {
+                return str.length;
+            }
+        */
+        let arrLength = arr.map(str=>str.length);//transform and return array
+        console.log('Array Length', arrLength);
+
+        /*let lengths = [];
+        for(let l in arr)
+        {
+            lengths.push(l.length);
+        }
+        console.log('Array_Length', lengths);
+        */
+       console.log('===============');
+       let nums = [10, 2 , 3, 5];
+       let total = nums.reduce((a,b)=>a+b);//(a,b)=>c that is reduce logic
+       console.log('tatal', total);
+       let minOfnums = nums.reduce((a,b)=>a<b?a:b);//(a,b)=>a<b?a:b compare reduce logic
+       console.log('minOfnums', minOfnums);
+    </script>
+</html>

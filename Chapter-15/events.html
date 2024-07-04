@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <button type="button" id="btnOk">OK</button>
+        <div id="container">Container
+            <div id="childContainer">Child</div>
+        </div>
+        <a href="http://www.google.com" id="btnGo">GO</a>
+    </body>
+    <script>
+        document.addEventListener('click', (event)=>{
+            console.log('Document Clicked', event);
+        })
+        document.getElementById('btnGo')
+                .addEventListener('click', (event)=>{
+                    console.log('Btn Go');
+                    event.preventDefault();
+                })
+        document.getElementById('childContainer')
+                .addEventListener('click', (event)=>{
+                    console.log('child container click handler', event);
+                    event.stopPropagation();
+                    document.getElementById('btnOk').dispatchEvent(new CustomEvent('click', event))
+                })
+        document.getElementById('container')
+                .addEventListener('click', (event)=>{
+                    /*if(event.target === this)
+                    {
+                        console.log('container handler 1', event);
+                    }
+                    */
+                   console.log('container handler 1', event);
+                    event.stopImmediatePropagation();//sequence
+                    //event.stopImmediatePropagation();
+                })
+        document.getElementById('container')
+                .addEventListener('click', (event)=>{
+                    console.log('container handler 2', event);
+                    
+                })
+        
+        document.addEventListener('contextmenu', (event)=>{
+            console.log('Document content right click', event);
+            event.preventDefault();
+        })
+        document.getElementById('btnOk')
+                    .addEventListener('click', ()=>{
+                        console.log('BTN OK Clicked', event);
+    
+                    })
+        
+    </script>
+</html>

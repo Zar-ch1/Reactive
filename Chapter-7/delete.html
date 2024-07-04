@@ -1,0 +1,12 @@
+<html>
+    <script>
+        let arr = [10, 20, 3, 1, 6];
+        //toDelete 3, 1;
+        let indextoDelete = [2, 3].sort().reverse();
+        for(let index of indextoDelete)
+        {
+            arr.splice(index, 1);
+        }
+        console.log('arr', arr);
+    </script>
+</html>

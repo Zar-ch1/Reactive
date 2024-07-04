@@ -1,0 +1,44 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+    <script>
+        let arr = [1,2,3];
+        console.log('arr', arr.flatMap(x=>[x, x*x]));
+        let container = (value)=>({
+            value,
+            map(fn)
+            {
+                return container(fn(value));
+            },
+            flatMap(fn)//monad (when have flatMap, that is Monad)
+            {
+                return fn(value);
+            },
+            ap(container)//container(fn) / applicative functor / (when ap, that is applicative functor)
+            {
+                return container.map(value)
+            },
+            valueOf()
+            {
+                return value;
+            }
+
+        });
+        container.of = container;
+        let add = (x)=>(y)=>x+y;
+        let double = (x)=>x*2;//normal function
+        let monadicFunc = (x)=>container.of(x+1);//Monadic Function
+        /*
+        let count = container.of(2);
+        console.log('count', count.map(double));
+        let d2Count = container.of(2);
+        console.log('count Map', count.map(add));//that will be two dimensional container
+        let flatCount = container.of(2);
+        console.log('count Flat_Map', count.flatMap(monadicFunc));//that will be two dimensional container
+        */
+       let count = container.of(2)
+                            .map(add)//container(add(2))
+                            .ap(container.of(3))
+                            .flatMap(monadicFunc)//container(container())
+        console.log('Count', count);
+    </script>
+</html>

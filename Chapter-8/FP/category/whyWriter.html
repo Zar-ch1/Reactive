@@ -1,0 +1,32 @@
+<html>
+    <script>
+        let inc = (x)=>([x+1, 'inc was called']);
+        let double = (x)=>([x*2, 'double was called']);
+        let pipe = (funcA)=>(funcB)=>x=>funcB(funcA(x));
+        let newFunc = pipe(inc)(double);
+        console.log('that is normal pipe', newFunc(10));
+        function pipe2(funcA, funcB)
+        {
+            return function(x)
+            {
+                let [result, log] = funcA(x);
+                let [result2, log2] = funcB(result);
+                return [result2, log+' , '+log2];
+            }
+        }
+        const newFuncWithCustomPipe = pipe2(inc, double);
+        console.log('pipe with custom', newFuncWithCustomPipe(10));
+        console.log('===========');
+        var bind = (f)=>function(tuple){
+            let [result, log] = tuple;
+            let [result2, log2] = f(result);
+            return [result2, log+log2];
+        }
+        let newFunc3 = bind(inc);
+        console.log('newFunc with tuple', newFunc3([10, '']));
+        const newFunc4 = pipe(bind(inc))(bind(double));
+        const unit = (x)=>[x, ''];
+        const newFunc5 = pipe(unit)(newFunc4);
+        console.log('newFunc with Bind and unit', newFunc5(10));
+    </script>
+</html>

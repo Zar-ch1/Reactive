@@ -1,0 +1,66 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+  <script src="mayBe.js"></script>
+  <script>
+    let obj = {
+        username : 'T K',
+        email: 'me@gmail.com'
+    };
+    //min length, max length,
+    //email valid?
+    //[userNameValidation, Emailvalidator]
+    const notEmpty = (input)=>input != '';
+    const minLength = (length)=>(str)=>str.length>=length;
+    const maxLength = (length)=>(str)=>str.length<=length;
+    const validEmail = (email)=>email.includes('@');
+    /*
+    console.log('minLength is 3 and Hello', minLength(3)('Hello'));
+    console.log('minLength is 3 and hi', minLength(3)('hi'));
+
+    console.log('maxLength is 6 and Hello', maxLength(6)('Hello'));
+    console.log('maxLength is 6 and hello World', maxLength(6)('hello World'));
+
+    console.log('validEmail ? with @', validEmail(obj.email));
+    console.log('validEmail ? without @', validEmail('bego.gmail.com'));
+
+    console.log('not Empyt_hello', notEmpty('hello'));
+    console.log('not Empyt', notEmpty(''));
+    */
+   const userNameNotEmpty = (obj)=>notEmpty(obj.username);
+   const emailNotEmpty = (obj)=>notEmpty(obj.email);
+   const userValidEmail = (obj)=>validEmail(obj.email);
+   const userNameMinLength = (obj)=>minLength(3)(obj.username);
+   const userNameMaxLength = (obj)=>maxLength(10)(obj.username);
+
+   console.log('username not empty', userNameNotEmpty(obj));
+   console.log('email not empty', emailNotEmpty(obj));
+   console.log('username min length', userNameMinLength(obj));
+   console.log('username max length', userNameMaxLength(obj));
+   // AND or OR ???
+   // A N D
+   function andCombinator(validationFns)//accept array
+   {
+        return function(input)
+        {
+            return validationFns.reduce((validationResult, fn)=>{
+                return validationResult && fn(input);
+            }, true);
+        }
+   }
+   // O R
+   function orCombinator(validationFns)//accept array
+   {
+        return function(input)
+        {
+            return validationFns.reduce((validationResult, fn)=>{
+                return validationResult || fn(input);
+            }, false);
+        }
+   }
+   let validateAnd = andCombinator([userNameNotEmpty, emailNotEmpty, userValidEmail, userNameMinLength, userNameMaxLength]);
+   console.log('validate....', validateAnd(obj));
+
+   let validateOr = orCombinator([userNameNotEmpty, emailNotEmpty, userValidEmail, userNameMinLength, userNameMaxLength]);
+   console.log('validate....', validateOr({name: 'hellowolrd bar nyr shue shaung', email: 'kolinn@gmail.com'}));
+   </script>
+</html>

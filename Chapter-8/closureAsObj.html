@@ -1,0 +1,58 @@
+<html>
+    <script>
+        function stack()
+        {
+            this.items = [];
+            this.push = function(...element)
+            {
+                return this.items.push(...element);
+            }
+            this.pop = function()
+            {
+                return this.items.pop();
+            }
+            
+        }
+        let obj = new stack();
+        obj.push(10,20,30,40);
+        console.log('obj_push', obj.items);
+        obj.pop();
+        console.log('obj_pop', obj.items);
+        console.log('obj', obj);
+        console.log('=======');
+        let closureStack = new stack();
+        closureStack.push(100);
+        closureStack.push(200);
+        closureStack.push(300);
+        console.log('closureStack', closureStack.items);
+        closureStack.pop();
+        console.log('closureStack', closureStack.items);
+        console.log('closureStack', closureStack);
+        console.log('===========================');
+        function CSstack()
+        {
+            let items = [];
+            function push(element)
+            {
+                items.push(element);
+            }
+            function pop()
+            {
+                return items.pop();
+            }
+            return {//ဒီကောင်က ဘာလို့လိုတာလဲဆိုတော့ push pop တို့က dot ခေါက်ပြီးခေါ်ရမှာဖြစ်တဲ့အတွက် method လိုဖြစ်စေချင်တာကြောင့် Obj return ပြန်လိုက်တာ
+                push,
+                pop
+            }
+        }
+        let cloSure = CSstack();
+        cloSure.push(5);
+        cloSure.push(6);
+        cloSure.push(7);
+        cloSure.push(8);
+        console.log('cloSure', cloSure.items);
+        console.log(cloSure);
+        console.log(cloSure.pop());
+
+    </script>
+</html>

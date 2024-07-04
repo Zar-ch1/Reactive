@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            .class1
+            {
+                color: green;
+            }
+            .class2
+            {
+                background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <ol>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+        </ol>
+        <div id="container" class="class1">
+            Container
+            <div>
+                Another
+            </div>
+            <span>
+                Child of div
+            </span>
+        </div>
+        <div class="container">
+            <form>
+                Name <input type="text", name="username">
+                Password <input type="password", id="password">
+            </form>
+            Container2
+            <span>
+                Child of div2
+            </span>
+        </div>
+    </body>
+    <script>
+        let container = document.getElementById('container');
+        console.log('parentNode', container.parentNode);//parent Node
+        console.log('childNodes', container.childNodes);//contain text nodes
+        console.log('children', container.children);//not contain text nodes
+        console.log('first element child', container.firstElementChild);
+        console.log('last element child', container.lastElementChild);
+        console.log('nextElement Sibling', container.nextElementSibling);
+        console.log('previousElement Sibling', container.previousElementSibling);
+        document.forms[0].action = 'https://www.google.com';//add attribute by manual
+        console.log('class ', container.classList);// get Class
+        container.classList.add('class2');
+        container.classList.remove('class1');
+    
+    
+    </script>
+</html>

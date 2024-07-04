@@ -1,0 +1,32 @@
+<html>
+<script>
+    let arr = [];
+    arr.push(10);
+    arr.push(20, 30)//multivalues with once
+    console.log('arr', arr);
+    arr.pop();
+    arr.pop();
+    console.log('popArr', arr);
+    console.log('============');
+    let letters = [..."Hello world"]; // An array of letters
+    let string = "";
+    for (let letter of letters) {
+        string += letter;
+    }
+    console.log(string);
+    console.log('==============');
+    console.log('ArrayEntries', arr.entries());
+    let arr1 = [100, 200, 300, 400];
+    for(const [index, value] of arr1.entries())
+    {
+        console.log('Arr1 Index', index, ' Arr1 Value', value);
+        arr1[index] = value * 2;
+    }
+    console.log(arr1);
+    for(const [index, value] of arr1.entries())
+    {
+        console.log('Arr1 Index', index, ' Arr1 Value', value);
+    }
+</script>
+
+</html>

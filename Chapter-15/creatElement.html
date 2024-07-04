@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <style>
+        .transparent{
+            opacity: 0;
+        }
+        .fadeable{
+            transition: opacity .5s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="transparent" data-something="10000" data-another-thing="20000">Container</div>
+    <button type="button" id="btnShow" class="fadeable">Click</button>
+    <table id="tbData">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>One</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Two</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    let container = document.getElementById('container');
+    let spanElement = document.createElement('span');
+    spanElement.innerText = 'Hello';//assign to spanElement
+    container.append(spanElement);//cause Child
+    /*
+    let newImage = document.createElement('img');
+    newImage.src = 'https://www.buildrestfoods.com/wp-content/uploads/2020/08/green-apply-416x416.jpg';
+    //container.append(newImage);
+       creat element
+       add attribute 
+       and append
+       ///
+       append is set to the last
+       prepend is set to the first
+    
+    container.prepend(newImage);
+    */
+
+    let newDiv = document.createElement('div');
+    newDiv.innerText = 'new Div'
+    //container.before(newDiv);//sibling
+    container.after(newDiv);//same before
+
+    spanElement.remove();//remove the element
+    
+    container.style.color = 'green';//can't change outside
+    container.setAttribute('style', 'color:blue;background:gray');//setAtt with Batch
+
+    document.getElementById('btnShow').addEventListener('click', ()=>{
+        container.classList.remove('transparent');
+        container.classList.add('fadeable');
+    });
+
+    console.log('Bounding area of table', document.getElementById('tbData').getBoundingClientRect());
+
+    document.addEventListener('click', (event)=>{
+        let x = event.clientX;
+        let y = event.clientY;
+        console.log('Element ', document.elementFromPoint(x, y));
+    });
+
+
+
+
+</script>
+
+</html>

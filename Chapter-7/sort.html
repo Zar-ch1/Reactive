@@ -1,0 +1,45 @@
+<html>
+    <script>
+        let arr = [10, 1, 112, 20];
+        arr.sort();//orgin sort alphabetical order
+        console.log('sort', arr);
+        arr.sort((a,b)=> a-b);/*argument in comparator
+        that wil return num sort smaller to greater*/
+        console.log('sTob arr', arr);
+        arr.sort((a,b)=>b-a);//greater to smaller
+        console.log('bTos arr', arr);
+        let students = [
+            {
+                name : 'Hla Hla',
+                gender : 'female',
+                age : 24
+            },
+            {
+                name : 'Tint Tint',
+                gender : 'female',
+                age : 20
+            },
+            {
+                name : 'Aye Mya',
+                gender : 'female',
+                age : 20
+            },
+            {
+                name : 'Mya Mg',
+                gender : 'male',
+                age : 30
+            },
+            ]
+            students.sort((stuA, stuB)=>{
+                if(stuA.age-stuB.age==0)
+                {
+                    return stuA.name.localeCompare(stuB.name);
+                }
+                else
+                {
+                    return stuA.age-stuB.age;
+                }
+            });
+            console.log('obj sort', students);
+    </script>
+</html>

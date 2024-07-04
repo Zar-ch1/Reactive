@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <style>
+        #container
+        {
+            height:2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="btnGo">Go</button>
+    <button type="button" id="btnJump">Jump</button>
+    <button type="button" id="btnBack">Back</button>
+    <div id="container">Container</div>
+    <div id="bottom">Bottom</div>
+</body>
+<script>
+    console.log('location', window.location);
+    document.getElementById('btnGo').addEventListener('click', ()=>{
+        window.location = 'https://www.google.com';
+    });
+    document.getElementById('btnJump').addEventListener('click', ()=>{
+        window.location.hash = 'bottom';//go with location hash but hash will change in address bar 
+    });
+    document.getElementById('btnBack').addEventListener('click', ()=>{
+        history.go(-1);
+    });
+    window.addEventListener('hashchange', (event)=>{
+        console.log('Hash Change', event);
+    })
+</script>
+
+</html>

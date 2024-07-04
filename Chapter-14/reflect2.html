@@ -1,0 +1,23 @@
+<html>
+    <script>
+        let obj = {
+
+        }
+        /*
+        Object.defineProperty(obj, 'x', {
+            value : 100,
+            get(){
+                return 200;
+            }
+        })  
+        */
+        Reflect.defineProperty(obj, 'x', {
+            value : 100,
+            /*get(){
+                return 200;
+            }
+            */
+        })  
+        console.log('Another Line');    
+    </script>
+</html>

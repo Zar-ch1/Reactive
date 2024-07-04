@@ -1,0 +1,39 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        console.log('Normal log');
+        console.error('Error ');
+        console.warn('Warn ');
+
+        function hello()
+        {
+            console.log('Hello');
+            console.trace('Trace Output');
+        }
+        let obj = { name: 'tk', age:39};
+        console.table(obj);
+        hello();
+        
+        console.count('Clicked');//can count like adv
+        console.count('Clicked');
+        console.count('Clicked');
+        console.countReset('Clicked');//reset the counting 
+        console.count('Clicked');
+        console.count('Clicked');
+        console.count('Clicked');
+        console.group('Level_1');
+        console.log('Level 1 output');
+        console.group('Level_2');
+        console.log('Level  2 output');
+        console.groupEnd();
+        console.groupEnd();//no effected 
+        console.time('time one')
+        console.timeLog('time one');
+        console.timeEnd('time one');
+        console.log('%d middle %s', 1.21, false);//just use comma
+        
+    </script>
+
+</html>

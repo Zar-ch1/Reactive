@@ -1,0 +1,47 @@
+<html>
+    <script>
+        
+       Promise.resolve(10)
+              .then(x=>Promise.resolve(x+5))
+              .then(console.log)
+              .then(console.log('Finally Excute'));//finally wil alway be first
+        //just like monadic func
+        
+        
+        class ourPromise{
+            handlers = []; 
+            constructor(callback)
+            {
+                //console.log('Callback', callback);
+                callback(this.resolve.bind(this), this.reject.bind(this));
+            }
+            resolve(data)
+            {
+                console.log('Resolve', data);
+                //let result = data;
+                return this.handlers.reduce((input, handler)=>{
+                    return handler(input);
+                }, data)//data is initial value of reduce method
+            }
+            reject(data)
+            {
+                console.log('Reject', data);
+            }
+            then(handler)
+            {
+                //console.log('Handler', handler);
+                this.handlers.push(handler);
+                return this;
+            }
+        };
+        let p = new ourPromise((resolve, reject)=>{
+            setTimeout(()=>{
+                console.log('Do something');
+                resolve(100);
+            }, 2000);
+        });
+            p.then(x=>x+1)
+             .then(data=>console.log('Hello', data));
+        
+    </script>
+</html>

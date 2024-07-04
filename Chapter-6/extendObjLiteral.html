@@ -1,0 +1,21 @@
+<html>
+    <script>
+        let name = 'tk';
+        let age = 29;
+        let obj = {
+            // name : name,
+            // age : age
+            name,//that call extend obj literal
+            //shorthand  n
+            age
+        }
+        console.log(obj);
+        let id = 1;
+        let data = 'dynamicProperty';
+        let obj2 = {
+            [id+data] : 100
+        }
+        console.log('computePname', obj2);
+        console.log('compute', obj2[id+data]);
+    </script>
+</html>

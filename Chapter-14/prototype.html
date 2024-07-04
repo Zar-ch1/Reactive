@@ -1,0 +1,37 @@
+<html>
+<script>
+    console.log('Object.getPrototypeOf({})', Object.getPrototypeOf({}));
+    console.log('Object.getPrototypeOf([])', Object.getPrototypeOf([]));
+
+    let parent = {
+        x: 100
+    };
+    let obj = Object.create(parent);
+    console.log('Obj parent', Object.getPrototypeOf(obj));
+    //console.log('obj', obj);
+
+    let another = {
+        x: 'hello'
+    };
+    Object.setPrototypeOf(obj, another);
+    console.log('obj.x', obj.x);
+
+
+    let uint8 = {
+        
+        [Symbol.hasInstance](x) {
+            return Number.isInteger(x) && x >= 0 && x <= 255;
+            
+        }
+        
+    };
+    /*
+    128 instanceof uint8 // => true
+    256 instanceof uint8 // => false: too big
+    Math.PI instanceof uint8 // => false: not an integer
+    */
+    console.log('unit 8 instanceof Number', uint8 instanceof Number);
+    console.log('128 instanceof Number', 128 instanceof uint8);
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <style>
+        #container{
+            height: 2500px;
+        }
+    </style>
+</head>
+
+<body>
+    TOP
+    <div id="container" class="transparent" data-something="10000" data-another-thing="20000">Container</div>
+    <button type="button" id="btnScroll" class="fadeable">Scroll</button>
+    <table id="tbData">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>One</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Two</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+   document.getElementById('btnScroll').addEventListener('click', ()=>{
+       // window.scrollTo(0,0);//go to top 
+     setInterval(()=>{window.scrollBy(0, -200)}, 100);
+   })
+
+   //setInterval(()=>{console.log('Hello');}, 5000);
+
+console.log('container bounding ract ', document.getElementById('container').getBoundingClientRect());
+</script>
+
+</html>

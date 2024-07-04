@@ -1,0 +1,11 @@
+<html>
+    <script>
+        let arr = [10, 20, 3, 1, 6];
+        let flatArr = arr.map(item=>[item, item*item]).flat();
+        console.log('flatArr', flatArr);
+        let flatMap = arr.flatMap(item=>[item, item*2]);
+        console.log('flatMap', flatMap);
+        console.log('2dFlat', [1,[2,3,[4]]].flat(2));//flat just only support 2Dimensional or one level
+        //but you can use parametor in flat 
+    </script>
+</html>
